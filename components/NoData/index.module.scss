@@ -1,0 +1,17 @@
+.NoDataWrap {
+  padding: 30px 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  svg {
+    font-size: 120px;
+    color: var(--second-color);
+  }
+  .NoDataText {
+    font-size: 12px;
+    line-height: 2;
+    color: var(--second-color);
+  }
+}

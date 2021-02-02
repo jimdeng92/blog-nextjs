@@ -1,0 +1,24 @@
+.Footer {
+  font-size: 14px;
+  height: 64px;
+  border-top: 1px solid var(--border-color);
+}
+
+.FooterWrapper {
+  color: var(--primary-color);
+  height: 100%;
+  margin: 0 auto;
+  line-height: 1.8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reference, .adams {
+  color: var(--second-color);
+}
+
+.reference:hover, .adams:hover {
+  cursor: pointer;
+  color: var(--link-color);
+}

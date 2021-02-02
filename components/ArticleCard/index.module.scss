@@ -1,0 +1,58 @@
+.Article {
+  padding: 10px 0;
+  position: relative;
+  &::before {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 2px;
+    background-color: var(--primary-color);
+    position: absolute;
+    bottom: 0;
+    left: -40px;
+  }
+  &:last-of-type::before {
+    content: none;
+  }
+  header {
+    h2 {
+      color: var(--primary-color);
+      font-size: 22px;
+      line-height: 2;
+      font-weight: bold;
+      margin: 25px 0;
+      display: inline-block;
+      &:hover {
+        color: var(--link-color);
+        // text-decoration: underline dotted;
+      }
+    }
+  }
+  main {
+    line-height: 2;
+  }
+  footer {
+    padding: 40px 0;
+    font-size: 12px;
+    color: var(--second-color);
+    span {
+      display: inline-block;
+      padding: 0 24px;
+      position: relative;
+      &:first-of-type {
+        padding-left: 0;
+      }
+      &:nth-of-type(n + 2)::before {
+        content: "";
+        display: block;
+        width: 2px;
+        height: 2px;
+        background-color: var(--second-color);
+        position: absolute;
+        top: 50%;
+        left: -1px;
+        transform: translateY(-50%);
+      }
+    }
+  }
+}

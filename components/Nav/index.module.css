@@ -1,0 +1,38 @@
+.Nav {
+  font-size: 14px;
+}
+
+.HeaderNavbarSvg {
+  padding: 0 15px;
+  display: inline-block;
+  position: relative;
+  color: var(--second-color);
+}
+
+.HeaderNavbarSvg.active {
+  color: var(--link-color);
+}
+
+.HeaderNavbarSvg:first-of-type {
+  padding-left: 0;
+}
+
+.HeaderNavbarSvg:nth-of-type(n + 2)::before {
+  content: "";
+  width: 2px;
+  height: 2px;
+  background-color: var(--second-color);
+  position: absolute;
+  top: 50%;
+  left: -1px;
+  transform: translateY(-50%);
+}
+
+.HeaderNavbarSvg:hover {
+  color: var(--link-color);
+  cursor: pointer;
+}
+
+.HeaderNavbarSvg svg {
+  margin-right: 3px;
+}

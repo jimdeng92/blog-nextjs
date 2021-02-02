@@ -1,0 +1,95 @@
+.Header {
+  padding-top: 64px;
+}
+
+.HeaderTitle {
+  margin: 0 auto;
+  padding-bottom: 42px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.HeaderTitleText {
+  color: var(--primary-color);
+}
+.HeaderTitleIcons {
+  color: var(--second-color);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.wechatWrapper {
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  position: absolute;
+  bottom: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.wechatWrapper img {
+  width: 100px;
+  height: 100px;
+  display: block;
+}
+
+.iconsContainer {
+  padding: 5px 15px;
+  position: relative;
+  color: var(--second-color);
+}
+
+.iconsContainer:nth-child(n + 2)::before {
+  content: "";
+  width: 2px;
+  height: 2px;
+  background-color: var(--second-color);
+  position: absolute;
+  top: 50%;
+  left: -1px;
+  transform: translateY(-50%);
+}
+.iconsContainer svg:hover {
+  color: var(--link-color);
+  cursor: pointer;
+}
+
+.HeaderNavbar {
+  margin: 0 auto;
+  font-size: 14px;
+  padding-bottom: 70px;
+}
+.HeaderStatement {
+  font-size: 14px;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  color: var(--second-color);
+}
+
+.HeaderStatement p {
+  margin: 0 auto;
+  line-height: 48px;
+}
+
+.NavBar {
+  z-index: 99;
+  line-height: 48px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 0 5px var(--border-color);
+  background-color: var(--bg-color);
+}
+
+.NavBarWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.NavBarWrapper > p {
+  font-weight: bold;
+}
