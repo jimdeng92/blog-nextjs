@@ -1,6 +1,7 @@
 import React from 'react'
-import styles from './index.module.css'
+import styles from './index.module.scss'
 import Link from 'next/link'
+import {useRouter} from 'next/router'
 
 const navList = [
   { id: 1, icon: 'icon-home', desc: '首页', to: '/home', exact: true },
@@ -9,6 +10,7 @@ const navList = [
 ]
 
 const Nav = () => {
+  const router = useRouter()
   
   return (
     <div className={styles.Nav}>
@@ -20,7 +22,7 @@ const Nav = () => {
             key={item.id} 
             href={item.to}
           >
-            <a className={styles.HeaderNavbarSvg}>
+            <a className={[`${styles.HeaderNavbarSvg}`, `${router.pathname === item.to ? styles.active : ''}`].join(' ')}>
               <svg className="icon" aria-hidden="true">
                 <use xlinkHref={'#' + item.icon}></use>
               </svg>

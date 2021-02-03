@@ -2,31 +2,14 @@ import React from 'react'
 import styles from './index.module.css'
 import Nav from '../Nav'
 import Wrapper from '../Wrapper'
+import {useRouter} from 'next/router'
 
 const Header = (props) => {
-  const [hitokoto, setHitokoto] = React.useState('')
+  const router = useRouter()
   const [wechatVisible, setWechatVisible] = React.useState(false)
   const [statementDom, setStatementDom] = React.useState(null)
-  const [title] = React.useState('Jim\'s Space')
+  const [title, setTitle] = React.useState('Jim\'s Space')
   const [navbarVisible, setNavBarVisible] = React.useState(false)
-
-  // 获取一言
-  const getHitokoto = () => {
-    return fetch('https://v1.hitokoto.cn/')
-      .then((res) => res.json())
-      .catch((err) => {
-        console.log(err)
-      })
-  }
-
-  React.useEffect(() => {
-    (async () => {
-      try {
-        const res = await getHitokoto()
-        setHitokoto(res.hitokoto)
-      } catch(e) {}
-    })()
-  }, [])
 
   // 监听滚动
   React.useEffect(() => {
@@ -36,6 +19,10 @@ const Header = (props) => {
       setNavBarVisible(offsetTop < scrollTop)
     }
     window.addEventListener('scroll', fn)
+    // 设置标题
+    if (router.pathname === '/posts/[pid]' && props.title) {
+      setTitle(props.title)
+    }
     return () => {
       window.removeEventListener('scroll', fn)
     }
@@ -46,7 +33,7 @@ const Header = (props) => {
       <Wrapper>
         <div className={styles.HeaderTitle}>
           <h2 className={styles.HeaderTitleText}>
-            {title}
+            Jim's Space
           </h2> 
           <div className={styles.HeaderTitleIcons}>
             <a 
@@ -88,7 +75,7 @@ const Header = (props) => {
         ref={(el) => { setStatementDom(el) }}
       >
         <Wrapper>
-          <p>{hitokoto || '在末日中，人们总想寻找希望，但要真有希望的话，那还叫末日吗？'}</p>
+          <p>{props?.hitokoto?.hitokoto}</p>
         </Wrapper>
       </div>
       {

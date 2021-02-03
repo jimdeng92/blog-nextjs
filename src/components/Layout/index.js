@@ -18,7 +18,7 @@ const Layout = (props) => {
         <script src="//at.alicdn.com/t/font_2130365_wlk94v9y9am.js"></script>
         <title>Jim's Space</title>
       </Head>
-      <Header />
+      <Header hitokoto={props.hitokoto} title={props.title}/>
       <Wrapper>
         {props.children}
       </Wrapper>

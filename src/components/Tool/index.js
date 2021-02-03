@@ -87,7 +87,7 @@ const Tool = (props) => {
         </div>
       }
       {
-        router.pathname !== '/' && 
+        router.pathname !== '/home' && 
           <div 
             title="返回首页"
             className={styles.iconsContainer}

@@ -1,7 +1,7 @@
 import React from 'react'
 import ArticleCard from '../ArticleCard'
 import Pagination from '../Pagination'
-// import NoData from '../NoData'
+import NoData from '../NoData'
 import styles from './index.module.scss'
 
 const ArticleList = ({posts}) => {

@@ -1,5 +1,8 @@
 .Nav {
   font-size: 14px;
+  .active {
+    color: var(--link-color);
+  }
 }
 
 .HeaderNavbarSvg {

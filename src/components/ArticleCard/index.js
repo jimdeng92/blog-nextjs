@@ -13,7 +13,7 @@ const Article = (props) => {
   return (
     <div className={styles.Article}>
       <header>
-        <Link href={`/detail?id=${props.article.id}`}>
+        <Link href={`/posts/[pid]`} as={`/posts/${props.article.id}`}>
           <a><h2>{props.article.title}</h2></a>
         </Link>
       </header>

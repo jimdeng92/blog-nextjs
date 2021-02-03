@@ -1,9 +1,9 @@
  /* 类似于 html 选择器，但具有更高的优先级 */
 :root {
   --bg-color: #fff;
-  --primary-color: #656D78;
-  --second-color: #AAB2BD;
-  --link-color: #3274ff;
+  --primary-color: #111;
+  --second-color: #696969;
+  --link-color: #0070f3;
   --border-color: #E6E9ED;
   --code-color: #333;
   --code-bg-color: #f6f6f6;

@@ -1,0 +1,19 @@
+.Detail {
+  padding: 0 15px;
+  > .title {
+    font-size: 32px;
+    margin: 60px 0 20px;
+    line-height: 1.7;
+  }
+  .markdownBody {
+    box-sizing: border-box;
+    min-width: 200px;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+  @media (max-width: 767px) {
+    .markdownBody {
+      
+    }
+  }
+}

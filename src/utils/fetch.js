@@ -3,11 +3,13 @@ import Qs from 'qs'
 
 export const baseUrl = process.env.HOST
 
-const request = async (url, config) => {
+const request = async (url, conf) => {
+  const config = conf || {}
+  
   let contentType, promise
   if (config['Content-Type'] !== undefined) {
     contentType = config['Content-Type']
-  } else if (config.method === 'POST') {
+  } else if (config.method === 'POST' || config.method === 'GET' || !config.method) {
     contentType = 'application/json;charset=UTF-8'
   } else {
     contentType = 'application/x-www-form-urlencoded; charset=UTF-8'
