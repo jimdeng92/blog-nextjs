@@ -1,8 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import ArticleCard from '../ArticleCard'
 import Pagination from '../Pagination'
 import NoData from '../NoData'
-import styles from './index.module.scss'
+// import styles from './index.module.scss'
 
 const ArticleList = ({posts}) => {
 
@@ -24,6 +25,10 @@ const ArticleList = ({posts}) => {
       }
     </div>
   )
+}
+
+ArticleList.propTypes = {
+  posts: PropTypes.object.isRequired
 }
 
 export default ArticleList

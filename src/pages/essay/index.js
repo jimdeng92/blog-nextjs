@@ -1,8 +1,22 @@
+import React from 'react'
+import PropTypes from 'prop-types'
 import Layout from '../../components/Layout'
 import {getList, getHitokoto} from '../../api'
 import ArticleList from '../../components/ArticleList'
 
-// This function gets called at build time
+export default function Essay({posts, hitokoto}) {
+  return (
+    <Layout hitokoto={hitokoto}>
+      <ArticleList posts={posts}/>
+    </Layout>
+  )
+}
+
+Essay.propTypes = {
+  posts: PropTypes.object.isRequired,
+  hitokoto: PropTypes.object.isRequired
+}
+
 export async function getStaticProps() {
   const params = {
     pageSize: 10,
@@ -14,12 +28,4 @@ export async function getStaticProps() {
   const posts = await getList(params)
   const hitokoto = await getHitokoto()
   return { props: { posts, hitokoto } }
-}
-
-export default function Home({posts, hitokoto}) {
-  return (
-    <Layout hitokoto={hitokoto}>
-      <ArticleList posts={posts}/>
-    </Layout>
-  )
 }

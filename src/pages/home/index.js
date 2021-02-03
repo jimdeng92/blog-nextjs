@@ -1,4 +1,6 @@
+import React from 'react'
 import Layout from '../../components/Layout'
+import PropTypes from 'prop-types'
 import {getHitokoto, getList} from '../../api'
 import ArticleList from '../../components/ArticleList'
 
@@ -12,10 +14,14 @@ export async function getStaticProps() {
 
   const posts = await getList(params)
   const hitokoto = await getHitokoto()
-  console.log(hitokoto)
   return { 
     props: { posts, hitokoto } 
   }
+}
+
+Home.propTypes = {
+  posts: PropTypes.object.isRequired,
+  hitokoto: PropTypes.object.isRequired
 }
 
 export default function Home({posts, hitokoto}) {

@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js"
+    "start": "NODE_ENV=production node server.js",
+    "export": "next export"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -14,13 +15,16 @@
     "highlight.js": "^10.5.0",
     "http-proxy-middleware": "^1.0.6",
     "next": "10.0.6",
+    "prop-types": "^15.7.2",
     "qs": "^6.9.6",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "sass": "^1.32.6"
   },
   "devDependencies": {
-    "cz-conventional-changelog": "^3.3.0"
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^7.19.0",
+    "eslint-plugin-react": "^7.22.0"
   },
   "config": {
     "commitizen": {
