@@ -10,6 +10,7 @@ const dev = process.env.NODE_ENV !== "production";
 const app = next({dev, conf: nextConf});
 const handle = app.getRequestHandler();
 
+// 使用fetch时（全路径），设置代理无效
 const devProxy = {
   "/api": {
     target: "http://localhost:9000",

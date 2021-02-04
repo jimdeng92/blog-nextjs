@@ -5,6 +5,10 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 - [ ] ESLint
 - [ ] Vercel
 
+## 部署
+
+git push 到 git 服务器，在 Linux 上 git pull，执行 `npm run build`，再执行 `npm run pm2`.
+
 ## Getting Started
 
 First, run the development server:

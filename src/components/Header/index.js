@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styles from './index.module.css'
 import Nav from '../Nav'
 import Wrapper from '../Wrapper'
@@ -33,7 +34,7 @@ const Header = (props) => {
       <Wrapper>
         <div className={styles.HeaderTitle}>
           <h2 className={styles.HeaderTitleText}>
-            Jim's Space
+            Jim&apos;s Space
           </h2> 
           <div className={styles.HeaderTitleIcons}>
             <a 
@@ -94,3 +95,8 @@ const Header = (props) => {
 }
 
 export default Header
+
+Header.propTypes = {
+  hitokoto: PropTypes.object.isRequired,
+  title: PropTypes.string
+}

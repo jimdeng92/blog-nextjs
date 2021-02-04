@@ -2,6 +2,7 @@
 // import Qs from 'qs'
 /*global process*/
 export const baseUrl = process.env.HOST
+console.log(baseUrl)
 
 const request = async (url, conf) => {
   const config = conf || {}
