@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styles from './index.module.scss'
 import { useRouter } from 'next/router'
 
@@ -30,7 +31,7 @@ const Tool = (props) => {
 
   // 返回首页
   function handleBackToHome() {
-    props.history.push('/home')
+    router.push('/home')
   }
 
   // 搜索框 Toggle
@@ -52,7 +53,7 @@ const Tool = (props) => {
   // 搜索框 KeyUp
   function handleSearchKeyUp(e) {
     // React 的 on 开头的事件都是合成事件，不是真实的，在原生的 DOM 上进行了封装，封装好之后交给事件池进行管理，合成事件对象可能会被重用，合成事件的所有属性也会随之被清空。所以当在异步处理程序（如 setTimeout 等等）中或者浏览器控制台中去访问合成事件的属性，默认 react 会把其属性全部设为 null。
-    // 如果在 react 中想异步访问事件属性（如在 setTimeout 内），应该在处理事件时调用 event.persist() ，这会从事件池中移除该合成函数并允许对该合成事件的引用被保留下来。
+   // 如果在 react 中想异步访问事件属性（如在 setTimeout 内），应该在处理事件时调用 event.persist() ，这会从事件池中移除该合成函数并允许对该合成事件的引用被保留下来。
     e.persist()
     if (e.keyCode === 13) {
       props.search(searchVal)
@@ -125,8 +126,7 @@ const Tool = (props) => {
       </div>
       <div 
         title="切换主题"
-        className={hasTheme && styles.eye} 
-        className={styles.iconsContainer}
+        className={[`${hasTheme ? styles.eye : ''}`, styles.iconsContainer].join(' ')} 
         onClick={handleTheme}
       >
         <svg className="icon" aria-hidden="true">
@@ -138,3 +138,8 @@ const Tool = (props) => {
 }
 
 export default Tool
+
+Tool.propTypes = {
+  // history: PropTypes.object.isRequired,
+  search: PropTypes.func
+}

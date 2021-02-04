@@ -4,8 +4,8 @@ import PropTypes from 'prop-types'
 import {getHitokoto, getList} from '../../api'
 import ArticleList from '../../components/ArticleList'
 
-// This function gets called at build time
-export async function getStaticProps() {
+// 服务端渲染
+export async function getServerSideProps() {
   const params = {
     pageSize: 10,
     pageNum: 1,

@@ -1,33 +1,30 @@
-// server.js
+/* global require process */
+const nextConf = require('./next.config')
 const express = require("express");
 const next = require("next");
 const {createProxyMiddleware} = require("http-proxy-middleware");
 
+console.log(process.env.NODE_ENV)
+const port = parseInt(process.env.PORT, 10) || 10001;
+const dev = process.env.NODE_ENV !== "production";
+const app = next({dev, conf: nextConf});
+const handle = app.getRequestHandler();
+
 const devProxy = {
   "/api": {
-    target: "http://localhost:9000", // 端口自己配置合适的
-    // pathRewrite: {
-    //   "^/api": "/",
-    // },
+    target: "http://localhost:9000",
     changeOrigin: true,
   },
 };
-
-const port = parseInt(process.env.PORT, 10) || 10001;
-const dev = process.env.NODE_ENV !== "production";
-const app = next({
-  dev,
-});
-const handle = app.getRequestHandler();
 
 app
   .prepare()
   .then(() => {
     const server = express();
-
+    // 开发环境代理
     if (dev && devProxy) {
       Object.keys(devProxy).forEach(function (context) {
-        server.use(createProxyMiddleware(context, devProxy[context]));
+        server.use(context, createProxyMiddleware(devProxy[context]));
       });
     }
 

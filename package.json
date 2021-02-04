@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js",
-    "export": "next export"
+    "start": "set NODE_ENV=production && node server.js",
+    "pm2": "pm2 start ecosystem.config.js --env production"
   },
   "dependencies": {
     "axios": "^0.21.1",
