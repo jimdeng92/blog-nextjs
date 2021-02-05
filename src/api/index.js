@@ -13,7 +13,11 @@ export const getDetailById = async (id) => {
   return data
 }
 
-export const getHitokoto = async () => {
-  const res = await fetch('https://v1.hitokoto.cn/')
-  return await res.json()
+export const getHitokoto = () => {
+  return fetch('https://v1.hitokoto.cn/')
+    .then((res) => {
+      return res.json()
+    })
+  // const res = await fetch('https://v1.hitokoto.cn/')
+  // return await res.json()
 }

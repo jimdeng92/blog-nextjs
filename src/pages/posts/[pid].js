@@ -8,16 +8,6 @@ import ErrorBoundary from '../../components/ErrorBoundary' // 错误边界
 import hljs from 'highlight.js'
 import Layout from '../../components/Layout'
 
-export async function getStaticProps(context) {
-  const {pid} = context.params
-
-  const posts = await getDetailById(pid)
-  const hitokoto = await getHitokoto()
-  return {
-    props: { posts, hitokoto }
-  }
-}
-
 const Posts = ({posts, hitokoto}) => {
   useEffect(()=>{
     document.querySelectorAll("pre code").forEach(block => {
@@ -52,6 +42,16 @@ const Posts = ({posts, hitokoto}) => {
 }
 
 export default Posts
+
+export async function getStaticProps(context) {
+  const {pid} = context.params
+
+  const posts = await getDetailById(pid)
+  const hitokoto = await getHitokoto()
+  return {
+    props: { posts, hitokoto }
+  }
+}
 
 export async function getStaticPaths() {
   const {list} = await getList({
