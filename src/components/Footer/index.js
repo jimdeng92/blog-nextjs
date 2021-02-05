@@ -7,11 +7,11 @@ const Footer = () => {
     <div className={styles.Footer}>
       <Wrapper>
         <div className={styles.FooterWrapper}>
-          <div>
+          <div className={styles.FooterItem}>
             © 2021 JimDeng . 
             <a className={styles.reference} href="http://www.miit.gov.cn/" target="_blank" rel="noopener noreferrer">粤ICP备2021011703号-1</a>
           </div>
-          <div>
+          <div className={styles.FooterItem}>
             Theme by 
             <a className={styles.adams} href="https://biji.io" target="_blank" rel="noopener noreferrer"> Adams </a>
           </div>

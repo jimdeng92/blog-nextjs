@@ -1,8 +1,9 @@
  /* 类似于 html 选择器，但具有更高的优先级 */
 :root {
   --bg-color: #fff;
-  --primary-color: #111;
-  --second-color: #696969;
+  --color-text-0: #111;
+  --primary-color: #383e46;
+  --second-color: #777e87;
   --link-color: #0070f3;
   --border-color: #E6E9ED;
   --code-color: #333;
@@ -14,11 +15,12 @@
 }
 
 :root[theme="eye"] {
-  --bg-color: #f3eacb;
-  --primary-color: #704214;
-  --second-color: #a98c51;
-  --link-color: #704214;
-  --border-color: #eae0be;
+  --bg-color: #1c1f2b;
+  --color-text-0: #e6e6e6;
+  --primary-color: #bdcadb;
+  --second-color: #666e8e;
+  --link-color: #fff;
+  --border-color: #393f56;
   --code-color: #333;
   --code-bg-color: #a98c51;
 

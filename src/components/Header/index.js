@@ -4,6 +4,7 @@ import styles from './index.module.css'
 import Nav from '../Nav'
 import Wrapper from '../Wrapper'
 import {useRouter} from 'next/router'
+import Link from 'next/link'
 
 const Header = (props) => {
   const router = useRouter()
@@ -34,7 +35,9 @@ const Header = (props) => {
       <Wrapper>
         <div className={styles.HeaderTitle}>
           <h2 className={styles.HeaderTitleText}>
-            Jim&apos;s Space
+            <Link href="/home">
+              <a>Jim&apos;s Space</a>
+            </Link>
           </h2> 
           <div className={styles.HeaderTitleIcons}>
             <a 

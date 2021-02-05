@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
 import styles from './index.module.scss'
-import {splitStr} from '../../utils/common'
+// import {splitStr} from '../../utils/common'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import 'dayjs/locale/zh-cn'
@@ -18,7 +18,7 @@ const ArticleCard = (props) => {
           <a><h2>{props.article.title}</h2></a>
         </Link>
       </header>
-      <main>{splitStr(props.article.content, 100)}</main>
+      <main className="text-cut">{props.article.content}</main>
       <footer>
         <span>{dayjs().from(props.article.createdAt, true)}前发布</span>
         {/* <span>248 条评论</span>

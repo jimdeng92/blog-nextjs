@@ -110,5 +110,12 @@
 /* 鼠标手势 */
 .point { cursor: pointer; user-select: none; }
 
-/* 文字超出 2 行 */
-.text-cut { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+/* 文字超出 3 行 */
+.text-cut { 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  overflow:hidden;
+  -webkit-box-orient: vertical;
+}

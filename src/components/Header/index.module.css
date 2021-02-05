@@ -11,7 +11,7 @@
 }
 
 .HeaderTitleText {
-  color: var(--primary-color);
+  color: var(--color-text-0);
 }
 .HeaderTitleIcons {
   color: var(--second-color);
@@ -66,6 +66,8 @@
   border-top: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
   color: var(--second-color);
+  white-space:nowrap;
+  overflow-x: auto;
 }
 
 .HeaderStatement p {
@@ -92,4 +94,8 @@
 
 .NavBarWrapper > p {
   font-weight: bold;
+  color: var(--color-text-0);
+  white-space: nowrap;
+  text-overflow:ellipsis;
+  overflow:hidden;
 }

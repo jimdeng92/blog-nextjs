@@ -1,8 +1,9 @@
 .Detail {
-  padding: 0 15px;
+  padding: 0 15px 80px;
   > .title {
     font-size: 32px;
-    margin: 60px 0 20px;
+    color: var(--color-text-0);
+    margin: 60px 0 40px;
     line-height: 1.7;
   }
   .markdownBody {
@@ -10,6 +11,7 @@
     min-width: 200px;
     max-width: 980px;
     margin: 0 auto;
+    color: var(--primary-color);
   }
   @media (max-width: 767px) {
     .markdownBody {
