@@ -27,19 +27,16 @@ const request = async (url, conf) => {
 
   if (!config.method || config.method === 'GET') {
     promise = await fetch(reqUrl, {
-      credentials: 'include',
       headers
     })
   } else if (config.method === 'POST') {
     promise = await fetch(reqUrl, {
-      credentials: 'include',
       body: JSON.stringify(config.body),
       headers,
       method: 'POST'
     })
   } else {
     promise = await fetch(reqUrl, {
-      credentials: 'include',
       body: JSON.stringify(config.body),
       headers,
       method: config.method
