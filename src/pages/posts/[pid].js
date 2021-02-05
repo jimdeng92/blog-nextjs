@@ -8,22 +8,6 @@ import ErrorBoundary from '../../components/ErrorBoundary' // 错误边界
 import hljs from 'highlight.js'
 import Layout from '../../components/Layout'
 
-export async function getStaticPaths() {
-  const {list} = await getList({
-    pageSize: 999,
-    pageNum: 1
-  })
-
-  const paths = list.map(item => ({
-    params: {pid: `${item.id}`}
-  }))
-
-  return {
-    paths,
-    fallback: false // 未返回的任何路径都将产生一个404页面
-  }
-}
-
 export async function getStaticProps(context) {
   const {pid} = context.params
 
@@ -69,7 +53,23 @@ const Posts = ({posts, hitokoto}) => {
 
 export default Posts
 
+export async function getStaticPaths() {
+  const {list} = await getList({
+    pageSize: 999,
+    pageNum: 1
+  })
+
+  const paths = list.map(item => ({
+    params: {pid: `${item.id}`}
+  }))
+
+  return {
+    paths,
+    fallback: false // 未返回的任何路径都将产生一个404页面
+  }
+}
+
 Posts.propTypes = {
   posts: PropTypes.object.isRequired,
-  hitokoto: PropTypes.object
+  hitokoto: PropTypes.object.isRequired
 }
