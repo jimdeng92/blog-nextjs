@@ -17,7 +17,7 @@ const request = async (url, conf) => {
   }
 
   // const reqUrl = (baseUrl + url).replace('//', '/')
-  const reqUrl = (baseUrl + url)
+  const reqUrl = baseUrl + url
   const headers = {
     // 如果实例配置没传token过来的话，直接使用保存在sessionStorage的token
     // 这里假设后端直接读头文件的token字段，我直接用token当字段了，Authorization也同理

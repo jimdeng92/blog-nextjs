@@ -97,6 +97,6 @@ const Header = (props) => {
 export default Header
 
 Header.propTypes = {
-  hitokoto: PropTypes.object.isRequired,
+  hitokoto: PropTypes.object,
   title: PropTypes.string
 }

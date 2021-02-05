@@ -5,7 +5,7 @@ import {getHitokoto, getList} from '../../api'
 import ArticleList from '../../components/ArticleList'
 
 // 服务端渲染
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const params = {
     pageSize: 10,
     pageNum: 1,
@@ -15,7 +15,8 @@ export async function getServerSideProps() {
   const posts = await getList(params)
   const hitokoto = await getHitokoto()
   return { 
-    props: { posts, hitokoto } 
+    props: { posts, hitokoto },
+    revalidate: 1, // 增量再生（更新生成的页面），从后台更新页面
   }
 }
 

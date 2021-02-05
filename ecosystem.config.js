@@ -17,15 +17,17 @@ module.exports = {
       ignore_watch: [ // 不用监听的文件
         'node_modules',
         'logs',
+        'out'
       ],
+      // 此处环境变量会覆盖 cross-env 设置的环境变量
       env: {
-        NODE_ENV: 'development',
+        // NODE_ENV: 'development',
         PORT: 10001
       },
-      env_production: {
-        NODE_ENV: 'production',
-        PORT: 10001
-      },
+      // env_production: {
+      //   NODE_ENV: 'production',
+      //   PORT: 10001
+      // },
       merge_logs: true, // 集群情况下，可以合并日志
     },
   ],

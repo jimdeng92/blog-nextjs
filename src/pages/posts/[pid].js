@@ -1,6 +1,7 @@
 // 文章详情
 
 import React, {useEffect} from 'react'
+import PropTypes from 'prop-types'
 import {getList, getDetailById, getHitokoto} from '../../api'
 import styles from './index.module.scss'
 import ErrorBoundary from '../../components/ErrorBoundary' // 错误边界
@@ -19,7 +20,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false
+    fallback: false // 未返回的任何路径都将产生一个404页面
   }
 }
 
@@ -67,3 +68,8 @@ const Posts = ({posts, hitokoto}) => {
 }
 
 export default Posts
+
+Posts.propTypes = {
+  posts: PropTypes.object.isRequired,
+  hitokoto: PropTypes.object
+}

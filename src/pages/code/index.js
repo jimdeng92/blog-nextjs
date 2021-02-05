@@ -15,7 +15,10 @@ export async function getStaticProps() {
 
   const posts = await getList(params)
   const hitokoto = await getHitokoto()
-  return { props: { posts, hitokoto } }
+  return { 
+    props: { posts, hitokoto },
+    revalidate: 1, // 增量再生（更新生成的页面），从后台更新页面
+  }
 }
 
 Code.propTypes = {
