@@ -2,8 +2,10 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## TODO
 
-- [ ] ESLint
-- [ ] Vercel
+- [x] ESLint
+- [x] Vercel
+- [ ] title修改（Redux）、SEO
+- [ ] 添加博客、分页设置、记录部署过程
 
 ## 部署
 
