@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import PropTypes from 'prop-types'
 import styles from './index.module.scss'
 
 // 左边的省略号
@@ -38,13 +39,17 @@ const Pagination = ({
   pageSize = 10, 
   hideOnSinglePage = false 
 }) => {
-  const [totalPage] = React.useState(Math.ceil(total/pageSize))
-  const [activeIndex, setActiveIndex] = React.useState(current - 1)
+  const [totalPage] = useState(Math.ceil(total/pageSize))
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  useEffect(() => {
+    setActiveIndex(current - 1)
+  }, [current])
 
   // 点击 item
   function handleItemClick(index) {
     if (index === activeIndex) return
-    setActiveIndex(index)
+    // setActiveIndex(index) // 切换路由前不改变组件状态
     onChange && onChange(index + 1)
   }
 
@@ -150,3 +155,20 @@ const Pagination = ({
 }
 
 export default Pagination
+
+LeftEllipsis.propTypes = {
+  handleItemClick: PropTypes.func.isRequired
+}
+
+RightEllipsis.propTypes = {
+  handleItemClick: PropTypes.func.isRequired,
+  totalPage: PropTypes.number
+}
+
+Pagination.propTypes = {
+  total: PropTypes.number.isRequired,
+  onChange: PropTypes.func,
+  current: PropTypes.number,
+  pageSize: PropTypes.number,
+  hideOnSinglePage: PropTypes.bool
+}

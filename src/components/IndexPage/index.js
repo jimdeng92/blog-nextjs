@@ -18,7 +18,7 @@ const IndexPage = (props) => {
       <meta name="description" content="JimDeng 的个人博客，记录生活点滴，学习心得。关于 CSS/JavaScript/Vue/React/Webpack/Node/Nextjs/小程序/面试" />
       <link rel="icon" href="/favicon.ico" />
       <script src="//at.alicdn.com/t/font_2130365_wlk94v9y9am.js"></script>
-      <title>Jim&apos;s Space</title>
+      <title>{props.title || 'Jim\'s Space'}</title>
     </Head>
   )
 }

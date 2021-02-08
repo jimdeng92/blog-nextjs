@@ -14,7 +14,7 @@ export const getDetailById = async (id) => {
 }
 
 export const getHitokoto = () => {
-  return fetch('https://v1.hitokoto.cn/')
+  return fetch('https://v1.hitokoto.cn')
     .then((res) => {
       return res.json()
     })

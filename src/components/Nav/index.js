@@ -22,7 +22,7 @@ const Nav = () => {
             key={item.id} 
             href={item.to}
           >
-            <a className={[`${styles.HeaderNavbarSvg}`, `${router.pathname === item.to ? styles.active : ''}`].join(' ')}>
+            <a className={[`${styles.HeaderNavbarSvg}`, `${`/${router.pathname.split('/')[1]}` === item.to ? styles.active : ''}`].join(' ')}>
               <svg className="icon" aria-hidden="true">
                 <use xlinkHref={'#' + item.icon}></use>
               </svg>
