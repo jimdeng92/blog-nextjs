@@ -10,7 +10,7 @@ const Layout = (props) => {
 
   return (
     <>
-      <IndexPage title={props.title} />
+      <IndexPage title={props.title} digest={props.digest}/>
       <Header hitokoto={props.hitokoto} title={props.title} />
       <Wrapper>
         {props.children}
@@ -26,5 +26,6 @@ export default Layout
 Layout.propTypes = {
   hitokoto: PropTypes.object,
   title: PropTypes.string,
+  digest: PropTypes.string,
   children: PropTypes.node
 }

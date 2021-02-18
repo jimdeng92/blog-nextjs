@@ -11,6 +11,7 @@ dayjs.locale('zh-cn')
 dayjs.extend(relativeTime)
 
 const ArticleCard = (props) => {
+
   return (
     <div className={styles.Article}>
       <header>
@@ -18,7 +19,7 @@ const ArticleCard = (props) => {
           <a><h2>{props.article.title}</h2></a>
         </Link>
       </header>
-      <main className="text-cut">{props.article.content}</main>
+      <main className="text-cut">{props.article.digest}</main>
       <footer>
         <span>{dayjs().from(props.article.createdAt, true)}前发布</span>
         {/* <span>248 条评论</span>

@@ -4,8 +4,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 - [x] ESLint
 - [x] Vercel
-- [ ] title修改（Redux）、SEO
-- [ ] 添加博客、分页设置、记录部署过程
+- [x] title修改
+- [x] 添加博客、分页设置
+- [ ] 记录部署过程、description 修改
 
 ## 部署
 

@@ -8,7 +8,7 @@ import Link from 'next/link'
 
 const Header = (props) => {
   const router = useRouter()
-  const [wechatVisible, setWechatVisible] = React.useState(false)
+  // const [wechatVisible, setWechatVisible] = React.useState(false)
   const [statementDom, setStatementDom] = React.useState(null)
   const [title, setTitle] = React.useState('Jim\'s Space')
   const [navbarVisible, setNavBarVisible] = React.useState(false)
@@ -51,7 +51,7 @@ const Header = (props) => {
                 <use xlinkHref="#icon-github"></use>
               </svg>
             </a>
-            <div 
+            {/* <div 
               className={styles.iconsContainer}
               onMouseEnter={() => {setWechatVisible(true)}} 
               onMouseLeave={() => {setWechatVisible(false)}}
@@ -65,7 +65,7 @@ const Header = (props) => {
                   <img src='/wechat.jpg' alt="wechat" />
                 </div>
               }
-            </div>
+            </div> */}
           </div> 
         </div>
         <div className={styles.HeaderNavbar}>

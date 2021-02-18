@@ -27,7 +27,7 @@ const Posts = ({posts, hitokoto}) => {
   }
 
   return (
-    <Layout hitokoto={hitokoto} title={posts.title}>
+    <Layout hitokoto={hitokoto} title={posts.title} digest={posts.digest}>
       <div className={styles.Detail}>
         <h2 className={styles.title}>{posts.title}</h2>
         {
