@@ -41,6 +41,17 @@ const Header = (props) => {
           </h2> 
           <div className={styles.HeaderTitleIcons}>
             <a 
+              className={styles.iconsContainer} 
+              href="https://imlinhe.com/cdn"
+              rel="noopener noreferrer" 
+              target="_blank" 
+              title="CDN"
+            >
+              <svg className="icon" aria-hidden="true">
+                <use xlinkHref="#icon-cdn"></use>
+              </svg>
+            </a>
+            <a 
               className={styles.iconsContainer}
               href="https://github.com/jimdeng92" 
               rel="noopener noreferrer" 
@@ -48,7 +59,7 @@ const Header = (props) => {
               title="jimdeng92"
             >
               <svg className="icon" aria-hidden="true">
-                <use xlinkHref="#icon-github"></use>
+                <use xlinkHref="#icon-github1"></use>
               </svg>
             </a>
             {/* <div 
