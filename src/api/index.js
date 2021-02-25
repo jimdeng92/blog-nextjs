@@ -13,11 +13,16 @@ export const getDetailById = async (id) => {
   return data
 }
 
-export const getHitokoto = () => {
-  return fetch('https://v1.hitokoto.cn')
-    .then((res) => {
-      return res.json()
-    })
-  // const res = await fetch('https://v1.hitokoto.cn/')
-  // return await res.json()
+export const getHitokoto = async () => {
+  // const data = fetch('https://v1.hitokoto.cn')
+  //   .then(res => res.json())
+  //   .then(data => data)
+  //   .catch(console.error)
+  // console.log(data)
+  // return data
+  const res = await fetch('https://v1.hitokoto.cn?c=h&encode=text')
+  const hitokoto = await res.text()
+  return {
+    hitokoto
+  }
 }
