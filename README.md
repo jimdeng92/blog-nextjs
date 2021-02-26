@@ -2,13 +2,13 @@
 
 ## 项目介绍
 
-利用 react 服务端框架 [nextjs](https://nextjs.org/) 写的博客，喜欢请给个 Star 支持一下。
+利用 react 服务端框架 [Nextjs](https://nextjs.org/) 写的博客，喜欢请给个 Star 支持一下。
 
 线上地址：[https://imlinhe.com](https://imlinhe.com)
 
 ## 项目架构
 
-这是项目的前端部分，还有管理系统和后端接口。
+这是项目的前端部分，还有`管理系统`和`后端服务提供`。
 
 主要技术栈包括：
 
@@ -25,7 +25,7 @@
 
 ## 安装
 
-1. 运行此项目请 clone 本项目的 github 地址，并修改 utils/fetch 下的 baseUrl 为 `'https://imlinhe.com`
+1. 运行此项目请 clone 本项目的 github 地址，并修改 utils/fetch 下的 baseUrl 为 `'https://imlinhe.com'`
 
 ```
 // 访问线上接口
@@ -54,7 +54,7 @@ yarn pm2
 
 ## 网站截图
 
-> UI 参考 [https://biji.io/](https://biji.io/) 搭建。
+> UI 参考 [https://biji.io](https://biji.io/) 搭建。
 
 ![](./public/image/home_list.png)
 
@@ -64,72 +64,9 @@ yarn pm2
 
 1. 由 [Nextjs](https://nextjs.org) 脚手架 `create-next-app` 搭建；
 
-2. 入口文件 `src/pages/index.js`，其中含路由重定向。
+2. 服务入口文件 --- `ecosystem.config.js`，这是 PM2 的配置文件（[了解更多](https://pm2.keymetrics.io/docs/usage/application-declaration/)），PM2 启动的脚本文件 --- `server.js`，这是 Nextjs 的服务文件（[自定义服务器](https://nextjs.org/docs/advanced-features/custom-server)）。
 
-```
-// 根目录
-import React, {useEffect} from 'react'
-import Layout from '../components/Layout'
-import {useRouter} from 'next/router'
-
-export default function Index() {
-  const router = useRouter()
-  
-  useEffect(() => {
-    router.prefetch('/home') // 预取
-    if (router.pathname === '/') {
-      router.replace('/home')
-    }
-  }, [])
-
-  return (
-    <Layout></Layout>
-  )
-}
-```
-
-3. 全局文件引入 `src/pages/_app.js`，其中含插件、全局样式和全局进度条等。
-
-```
-import React, {useEffect} from 'react'
-import PropTypes from 'prop-types'
-import 'dayjs/locale/zh-cn'
-// 全局样式
-import '../styles/variable.css'
-import '../styles/global.css'
-import '../styles/common.css'
-// import 'highlight.js/scss/github.scss'
-import 'github-markdown-css'
-// import '../styles/github-markdown.css'
-import NProgress from 'nprogress'
-import 'nprogress/nprogress.css'
-import {useRouter} from 'next/router'
-
-function MyApp({ Component, pageProps }) {
-  const router = useRouter()
-
-  useEffect(() => {
-    router.events.on('routeChangeStart', () => {
-      NProgress.start()
-    })
-    router.events.on('routeChangeComplete', () => NProgress.done())
-    router.events.on('routeChangeError', () => NProgress.done())
-  }, [])
-
-  return <Component {...pageProps} />
-}
-
-export default MyApp
-
-MyApp.propTypes = {
-  Component: PropTypes.elementType.isRequired,
-  pageProps: PropTypes.object
-}
-```
-
-4. 服务入口文件 --- `ecosystem.config.js`，这是 PM2 的配置文件，[更多](https://pm2.keymetrics.io/docs/usage/application-declaration/)，PM2 启动的脚本文件 --- `server.js`，这是 Nextjs 的服务文件，[自定义服务器](https://nextjs.org/docs/advanced-features/custom-server)。
-
-5. 关于 Nextjs 增量再生和 fallback 功能示例可以看[src/pages/posts/pid.js](./src/pages/posts/[pid].js)：
+3. 关于 Nextjs 增量再生和 fallback 功能可以看[src/pages/posts/pid.js](./src/pages/posts/[pid].js)，它们配合使用能极大的优化项目：
 
 ```
 import React, {useEffect} from 'react'
@@ -217,10 +154,73 @@ Posts.propTypes = {
   hitokoto: PropTypes.object.isRequired
 }
 
-``
+```
+
+4. 入口文件 `src/pages/index.js`，其中含路由重定向。
+
+```
+// 根目录
+import React, {useEffect} from 'react'
+import Layout from '../components/Layout'
+import {useRouter} from 'next/router'
+
+export default function Index() {
+  const router = useRouter()
+  
+  useEffect(() => {
+    router.prefetch('/home') // 预取
+    if (router.pathname === '/') {
+      router.replace('/home')
+    }
+  }, [])
+
+  return (
+    <Layout></Layout>
+  )
+}
+```
+
+5. 全局文件引入 `src/pages/_app.js`，其中含插件、全局样式和全局进度条等。
+
+```
+import React, {useEffect} from 'react'
+import PropTypes from 'prop-types'
+import 'dayjs/locale/zh-cn'
+// 全局样式
+import '../styles/variable.css'
+import '../styles/global.css'
+import '../styles/common.css'
+// import 'highlight.js/scss/github.scss'
+import 'github-markdown-css'
+// import '../styles/github-markdown.css'
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
+import {useRouter} from 'next/router'
+
+function MyApp({ Component, pageProps }) {
+  const router = useRouter()
+
+  useEffect(() => {
+    router.events.on('routeChangeStart', () => {
+      NProgress.start()
+    })
+    router.events.on('routeChangeComplete', () => NProgress.done())
+    router.events.on('routeChangeError', () => NProgress.done())
+  }, [])
+
+  return <Component {...pageProps} />
+}
+
+export default MyApp
+
+MyApp.propTypes = {
+  Component: PropTypes.elementType.isRequired,
+  pageProps: PropTypes.object
+}
+```
 
 
------------------- **教程结束，以下为开发者备忘** --------------------
+------------------ **教程结束，以下为开发者计划和备忘** --------------------
 
 ## TODO
 
@@ -234,7 +234,7 @@ Posts.propTypes = {
 - [ ] 前端接口不进行验证（其他验证）
 - [ ] 查询服务器状态、日志整理
 
-## 部署
+## 服务器部署
 
 git push 到 git 服务器，在 Linux 上 git pull，执行 `npm run build`，再执行 `npm run pm2`.
 
