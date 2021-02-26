@@ -56,9 +56,15 @@ yarn pm2
 
 > UI 参考 [https://biji.io](https://biji.io/) 搭建。
 
+- 首页
+
 ![](./public/image/home_list.png)
 
+- 详情
+
 ![](./public/image/home_detail.png)
+
+更多页面访问[博客](https://imlinhe.com)
 
 ## 源码剖析
 
@@ -220,9 +226,9 @@ MyApp.propTypes = {
 ```
 
 
------------------- **教程结束，以下为开发者计划和备忘** --------------------
+<center>------------------ **教程结束，以下为开发者计划和备忘** --------------------</center>
 
-## TODO
+### TODO
 
 - [x] ESLint
 - [x] Vercel
@@ -234,11 +240,11 @@ MyApp.propTypes = {
 - [ ] 前端接口不进行验证（其他验证）
 - [ ] 查询服务器状态、日志整理
 
-## 服务器部署
+### 服务器部署
 
 git push 到 git 服务器，在 Linux 上 git pull，执行 `npm run build`，再执行 `npm run pm2`.
 
-## QA
+### QA
 
 1. 起初 .env.production 中的环境变量我设置了 `HOSTNAME=imlinhe.com HOST=https://$HOSTNAME`，在本地打包没什么问题，但是到服务端打包却总是报错，接口调用连接的是 `https://vm-0-6-centos/api/blog/list`，其中 `vm-0-6-centos` 是我服务器的主机名。排查了很久，在服务端执行 `export` 才发现 Linux 有环境变量 HOSTNAME，是 Linux 的环境变量覆盖了我的设置，因此在项目中修改 HOSTNAME 这个关键字就 ok 了。
 
