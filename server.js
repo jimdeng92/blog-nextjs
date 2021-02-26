@@ -2,6 +2,7 @@
 const nextConf = require('./next.config')
 const express = require("express");
 const next = require("next");
+const compression = require('compression')
 // const {createProxyMiddleware} = require("http-proxy-middleware");
 
 console.log(process.env.NODE_ENV)
@@ -22,6 +23,12 @@ app
   .prepare()
   .then(() => {
     const server = express();
+
+    // gzip 压缩
+    if (!dev) {
+      server.use(compression()) //gzip
+    }
+
     // 开发环境代理
     // if (dev && devProxy) {
     //   Object.keys(devProxy).forEach(function (context) {

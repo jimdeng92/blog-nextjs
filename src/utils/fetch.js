@@ -1,7 +1,12 @@
 
 // import Qs from 'qs'
 /*global process*/
+
+// 访问线上接口
+// export const baseUrl = 'https://imlinhe.com' 
+
 export const baseUrl = process.env.HOST
+
 console.log(baseUrl)
 
 const request = async (url, conf) => {

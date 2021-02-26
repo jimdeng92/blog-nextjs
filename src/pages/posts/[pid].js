@@ -11,6 +11,7 @@ import {useRouter} from 'next/router'
 const Posts = ({posts, hitokoto}) => {
   const router = useRouter()
   // 设置 fallback: true 必须进行路由判断，否则打包是无法访问到属性会报错
+  // TODO Layout 传参优化
   if (router.isFallback) {
     return <Loading />
   }
