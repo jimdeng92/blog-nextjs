@@ -25,7 +25,8 @@ export async function getStaticProps(context) {
   const posts = await getList(params)
   const hitokoto = await getHitokoto()
   return {
-    props: { posts, hitokoto }
+    props: { posts, hitokoto },
+    revalidate: 1
   }
 }
 

@@ -49,7 +49,8 @@ export async function getStaticProps(context) {
   const posts = await getDetailById(pid)
   const hitokoto = await getHitokoto()
   return {
-    props: { posts, hitokoto }
+    props: { posts, hitokoto },
+    revalidate: 1
   }
 }
 

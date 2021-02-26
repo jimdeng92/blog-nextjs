@@ -16,8 +16,8 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter()
 
   useEffect(() => {
-    router.events.on('routeChangeStart', (url) => {
-      console.log(`Loading: ${url}`)
+    router.events.on('routeChangeStart', () => {
+      // console.log(`Loading: ${url}`)
       NProgress.start()
     })
     router.events.on('routeChangeComplete', () => NProgress.done())
