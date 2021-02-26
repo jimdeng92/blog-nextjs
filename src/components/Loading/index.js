@@ -1,13 +1,13 @@
 import React from 'react';
-import './index.module.scss'
+import styles from './index.module.scss'
 
 export default function Loading() {
   return (
-    <div className="Loading-wrap">
+    <div className={styles.LoadingWrap}>
       <svg className="icon" aria-hidden="true">
         <use xlinkHref="#icon-loading"></use>
       </svg>
-      {/* <span className="Loading-text">加载中...</span> */}
+      <span className={styles.LoadingText}>加载中...</span>
     </div>
   )
 }

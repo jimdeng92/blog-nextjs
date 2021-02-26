@@ -34,15 +34,20 @@ const Posts = ({posts, hitokoto}) => {
 
   return (
     <Layout hitokoto={hitokoto} title={posts.title} digest={posts.digest}>
-      <div className={styles.Detail}>
-        <h2 className={styles.title}>{posts.title}</h2>
-        {
-          posts.html && 
-          <ErrorBoundary>
-            <article className={[`${styles.markdownBody}`, 'markdown-body'].join(' ')} dangerouslySetInnerHTML={createMarkup()}></article>
-          </ErrorBoundary>
-        }
-      </div>
+      {
+        router.isFallback ? 
+        <Loading /> : 
+        <div className={styles.Detail}>
+          <h2 className={styles.title}>{posts.title}</h2>
+          {
+            posts.html && 
+            <ErrorBoundary>
+              <article className={[`${styles.markdownBody}`, 'markdown-body'].join(' ')} dangerouslySetInnerHTML={createMarkup()}></article>
+            </ErrorBoundary>
+          }
+        </div>
+      }
+      
     </Layout>
   )
 }

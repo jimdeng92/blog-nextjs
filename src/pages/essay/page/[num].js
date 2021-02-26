@@ -9,13 +9,10 @@ import {useRouter} from 'next/router'
 export default function Page({posts, hitokoto}) {
   const router = useRouter()
   // 设置 fallback: true 必须进行路由判断，否则打包是无法访问到属性会报错
-  if (router.isFallback) {
-    return <Loading />
-  }
 
   return (
     <Layout hitokoto={hitokoto}>
-      <ArticleList posts={posts}/>
+      {router.isFallback ? <Loading /> : <ArticleList posts={posts}/>}
     </Layout>
   )
 }
