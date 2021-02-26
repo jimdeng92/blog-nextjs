@@ -18,7 +18,6 @@ export const getHitokoto = async () => {
   //   .then(res => res.json())
   //   .then(data => data)
   //   .catch(console.error)
-  // console.log(data)
   // return data
   const res = await fetch('https://v1.hitokoto.cn?c=h&encode=text')
   const hitokoto = await res.text() // 使用默认 json 打包会导致错误

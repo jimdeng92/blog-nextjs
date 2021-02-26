@@ -58,7 +58,6 @@ instance.interceptors.response.use(
     if (!res.data || res.data.code !== 200) {
       return Promise.reject(res.data.message)
     }
-    // console.log('url: %s, response: %o', res.config.url, res.data)
     return Promise.resolve(res.data)
   },
   // 请求失败

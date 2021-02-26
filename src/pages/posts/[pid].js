@@ -1,5 +1,3 @@
-// 文章详情
-
 import React, {useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {getList, getDetailById, getHitokoto} from '../../api'
@@ -7,8 +5,16 @@ import styles from './index.module.scss'
 import ErrorBoundary from '../../components/ErrorBoundary' // 错误边界
 import hljs from 'highlight.js'
 import Layout from '../../components/Layout'
+import Loading from '../../components/Loading'
+import {useRouter} from 'next/router'
 
 const Posts = ({posts, hitokoto}) => {
+  const router = useRouter()
+  // 设置 fallback: true 必须进行路由判断，否则打包是无法访问到属性会报错
+  if (router.isFallback) {
+    return <Loading />
+  }
+
   useEffect(()=>{
     document.querySelectorAll("pre code").forEach(block => {
       try{
@@ -66,7 +72,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false // 未返回的任何路径都将产生一个404页面
+    fallback: true // 未返回的任何路径都将产生一个404页面
   }
 }
 

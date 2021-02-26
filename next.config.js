@@ -1,5 +1,6 @@
 /* global module require __dirname */
 const path = require('path')
+
 module.exports = {
   /* config options here */
   distDir: 'build',

@@ -12,7 +12,8 @@ module.exports = {
       instance_var: 'INSTANCE_ID',
       exec_mode: 'cluster', // 集群
       watch: [ // 监听模式，不能单纯的设置为true，易导致无限重启，因为日志文件在变化，需要排除对其的监听
-        'src/'
+        'src',
+        'build'
       ],
       ignore_watch: [ // 不用监听的文件
         'node_modules',

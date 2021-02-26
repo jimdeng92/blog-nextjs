@@ -3,8 +3,16 @@ import Layout from '../../../components/Layout'
 import PropTypes from 'prop-types'
 import {getHitokoto, getList} from '../../../api'
 import ArticleList from '../../../components/ArticleList'
+import Loading from '../../../components/Loading'
+import {useRouter} from 'next/router'
 
 export default function Page({posts, hitokoto}) {
+  const router = useRouter()
+  // 设置 fallback: true 必须进行路由判断，否则打包是无法访问到属性会报错
+  if (router.isFallback) {
+    return <Loading />
+  }
+
   return (
     <Layout hitokoto={hitokoto}>
       <ArticleList posts={posts}/>
@@ -13,7 +21,6 @@ export default function Page({posts, hitokoto}) {
 }
 
 export async function getStaticProps(context) {
-  console.log(context)
   const {num} = context.params
   const params = {
     pageSize: 10,
@@ -47,7 +54,7 @@ export async function getStaticPaths() {
 
   return {
     paths: pages,
-    fallback: false // 未返回的任何路径都将产生一个404页面
+    fallback: true // 未返回的任何路径都将产生一个404页面
   }
 }
 

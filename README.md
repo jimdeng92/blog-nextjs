@@ -19,3 +19,5 @@ git push 到 git 服务器，在 Linux 上 git pull，执行 `npm run build`，�
 
 2. 服务端执行 `yarn build` （有时会）报错 FetchError: invalid json response body at https://v1.hitokoto.cn/ reason: Unexpected end of JSON input ，~~需要删除 pm2 服务 --- `pm2 delete blog-nextjs` 再执行 `yarn build`，然后启动 `yarn pm2` ~~，导致错误的原因是 hitokoto 接口返回，目前的解决方案是返回普通文本，然后包装成对象。
 
+3. 添加文章出现在列表中，而访问出现 404 的问题，通过设置 fallback: true 解决，但是设置后打包报错，需要通过路由 router.isFallback 判断显示loading。
+
