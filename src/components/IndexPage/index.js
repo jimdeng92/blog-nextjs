@@ -19,7 +19,8 @@ const IndexPage = (props) => {
       <link rel="icon" href="/favicon.ico" />
       {/* 友盟统计 */}
       <script type="text/javascript" src="https://s9.cnzz.com/z_stat.php?id=1279718538&web_id=1279718538"></script>
-      <script src="//at.alicdn.com/t/font_2130365_bkgorptdsod.js"></script>
+      {/* iconfont */}
+      <script src="//at.alicdn.com/t/font_2130365_fmms2mpu4vg.js"></script>
       <title>{props.title || 'Jim\'s Space'}</title>
     </Head>
   )

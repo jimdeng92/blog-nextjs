@@ -40,6 +40,7 @@ const Header = (props) => {
             </Link>
           </h2> 
           <div className={styles.HeaderTitleIcons}>
+            {/* cdn */}
             <a 
               className={styles.iconsContainer} 
               href="https://imlinhe.com/cdn"
@@ -51,6 +52,19 @@ const Header = (props) => {
                 <use xlinkHref="#icon-cdn"></use>
               </svg>
             </a>
+            {/* email */}
+            <a 
+              className={styles.iconsContainer}
+              href="mailto:jimdeng92@gmail.com" 
+              rel="noopener noreferrer" 
+              target="_blank" 
+              title="mailto: jimdeng92@gmail.com"
+            >
+              <svg className="icon" aria-hidden="true">
+                <use xlinkHref="#icon-mail"></use>
+              </svg>
+            </a>
+            {/* github */}
             <a 
               className={styles.iconsContainer}
               href="https://github.com/jimdeng92" 
