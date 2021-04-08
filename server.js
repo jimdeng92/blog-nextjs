@@ -36,6 +36,11 @@ app
     //   });
     // }
 
+    server.get('/posts/:id', (req, res) => {
+      // TODO 调起接口浏览数加1
+      handle(req, res)
+    })
+
     server.all("*", (req, res) => {
       handle(req, res);
     });

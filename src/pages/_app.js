@@ -15,6 +15,16 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter()
 
   useEffect(() => {
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?3f5f6f32015075cc5e29b7d50b6e9917";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  })
+
+  useEffect(() => {
     router.events.on('routeChangeStart', () => {
       NProgress.start()
     })
