@@ -7,6 +7,9 @@ import hljs from 'highlight.js'
 import Layout from '../../components/Layout'
 import Loading from '../../components/Loading'
 import {useRouter} from 'next/router'
+import Link from 'next/link'
+import { marked } from 'marked'
+import 'highlight.js/styles/stackoverflow-light.css'
 
 const Posts = ({posts, hitokoto}) => {
   const router = useRouter()
@@ -16,39 +19,38 @@ const Posts = ({posts, hitokoto}) => {
     return <Loading />
   }
 
+  // document.addEventListener('DOMContentLoaded', () => {
+  //   const markdownBody = document.querySelector(".markdown-body")
+  //   hljs.highlightElement(markdownBody)
+  // });
   useEffect(()=>{
-    document.querySelectorAll("pre code").forEach(block => {
-      try{
-        hljs.highlightBlock(block)
-      }
-      catch(e){
-        console.log(e)
-      }
-    })
+    hljs.highlightAll()
   })
 
   function createMarkup() {
+    console.log()
     return {
-      __html: posts.html
+      __html: marked.parse(posts.content)
     }
   }
 
   return (
     <Layout hitokoto={hitokoto} title={posts.title} digest={posts.digest}>
       {
-        router.isFallback ? 
-        <Loading /> : 
+        router.isFallback ?
+        <Loading /> :
         <div className={styles.Detail}>
           <h2 className={styles.title}>{posts.title}</h2>
-          {
-            posts.html && 
-            <ErrorBoundary>
-              <article className={[`${styles.markdownBody}`, 'markdown-body'].join(' ')} dangerouslySetInnerHTML={createMarkup()}></article>
-            </ErrorBoundary>
-          }
+          <ErrorBoundary>
+            <article className={[`${styles.markdownBody}`, 'markdown-body'].join(' ')} dangerouslySetInnerHTML={createMarkup()}></article>
+            {/* 编辑 */}
+            <Link href={`/modify/[pid]`} as={`/modify/${posts.id}`} className={styles.modifyButton}>
+              编辑
+            </Link>
+          </ErrorBoundary>
         </div>
       }
-      
+
     </Layout>
   )
 }

@@ -5,6 +5,7 @@ import Nav from '../Nav'
 import Wrapper from '../Wrapper'
 import {useRouter} from 'next/router'
 import Link from 'next/link'
+import Icon from '../Icon'
 
 const Header = (props) => {
   const router = useRouter()
@@ -36,49 +37,51 @@ const Header = (props) => {
         <div className={styles.HeaderTitle}>
           <h2 className={styles.HeaderTitleText}>
             <Link href="/home">
-              <a>Jim&apos;s Space</a>
+              Jim&apos;s Space
             </Link>
-          </h2> 
+          </h2>
           <div className={styles.HeaderTitleIcons}>
             {/* cdn */}
-            <a 
-              className={styles.iconsContainer} 
+            {/* <a
+              className={styles.iconsContainer}
               href="https://imlinhe.com/cdn"
-              rel="noopener noreferrer" 
-              target="_blank" 
+              rel="noopener noreferrer"
+              target="_blank"
               title="CDN"
             >
               <svg className="icon" aria-hidden="true">
                 <use xlinkHref="#icon-cdn"></use>
               </svg>
-            </a>
+            </a> */}
             {/* email */}
-            <a 
+            <a
               className={styles.iconsContainer}
-              href="mailto:jimdeng92@gmail.com" 
-              rel="noopener noreferrer" 
-              target="_blank" 
+              href="mailto:jimdeng92@gmail.com"
+              rel="noopener noreferrer"
+              target="_blank"
               title="mailto: jimdeng92@gmail.com"
             >
-              <svg className="icon" aria-hidden="true">
-                <use xlinkHref="#icon-mail"></use>
-              </svg>
+              <Icon name='Mail' />
             </a>
             {/* github */}
-            <a 
+            <a
               className={styles.iconsContainer}
-              href="https://github.com/jimdeng92" 
-              rel="noopener noreferrer" 
-              target="_blank" 
-              title="jimdeng92"
+              href="https://github.com/jimdeng92"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="GitHub"
             >
-              <svg className="icon" aria-hidden="true">
-                <use xlinkHref="#icon-github1"></use>
-              </svg>
+              <Icon name='Github' />
             </a>
-            {/* <div 
+            {/* login */}
+            <div className={styles.iconsContainer}>
+              <Link href="/log-in" title="登录">
+                <Icon name='LogIn' />
+              </Link>
+            </div>
+            {/* <div
               className={styles.iconsContainer}
-              onMouseEnter={() => {setWechatVisible(true)}} 
+              onMouseEnter={() => {setWechatVisible(true)}}
               onMouseLeave={() => {setWechatVisible(false)}}
             >
               <svg className="icon" aria-hidden="true">
@@ -91,7 +94,7 @@ const Header = (props) => {
                 </div>
               }
             </div> */}
-          </div> 
+          </div>
         </div>
         <div className={styles.HeaderNavbar}>
           <Nav
@@ -99,7 +102,7 @@ const Header = (props) => {
           />
         </div>
       </Wrapper>
-      <div 
+      <div
         className={styles.HeaderStatement}
         ref={(el) => { setStatementDom(el) }}
       >

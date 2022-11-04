@@ -8,6 +8,7 @@
   --border-color: #E6E9ED;
   --code-color: #333;
   --code-bg-color: #f6f6f6;
+  --shadow-color: #EAEAEA;
 
   --success-color: #52c41a;
   --warning-color: #faad14;
@@ -19,10 +20,11 @@
   --color-text-0: #e6e6e6;
   --primary-color: #bdcadb;
   --second-color: #666e8e;
-  --link-color: #fff;
+  --link-color: #0070f3;
   --border-color: #393f56;
   --code-color: #333;
   --code-bg-color: #a98c51;
+  --shadow-color: #EAEAEA;
 
   --success-color: #52c41a;
   --warning-color: #faad14;

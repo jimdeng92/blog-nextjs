@@ -3,15 +3,15 @@
 /*global process*/
 
 // 访问线上接口
-// export const baseUrl = 'https://imlinhe.com' 
+// export const baseUrl = 'https://imlinhe.com'
 
-export const baseUrl = process.env.HOST
+export const baseUrl = process.env.NEXT_PUBLIC_HOST
 
-console.log(baseUrl)
+console.log('baseUrl---', baseUrl)
 
 const request = async (url, conf) => {
   const config = conf || {}
-  
+
   let contentType, promise
   if (config['Content-Type'] !== undefined) {
     contentType = config['Content-Type']
@@ -27,27 +27,32 @@ const request = async (url, conf) => {
     // 如果实例配置没传token过来的话，直接使用保存在sessionStorage的token
     // 这里假设后端直接读头文件的token字段，我直接用token当字段了，Authorization也同理
     // token: config.token === undefined ? sessionStorage.token : config.token,
-    'Content-Type': contentType
+    'Content-Type': contentType,
   }
 
   if (!config.method || config.method === 'GET') {
     promise = await fetch(reqUrl, {
-      headers
+      headers,
+      // https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch#%E5%8F%91%E9%80%81%E5%B8%A6%E5%87%AD%E6%8D%AE%E7%9A%84%E8%AF%B7%E6%B1%82
+      // 为了让浏览器发送包含凭据的请求（即使是跨域源），要将 credentials: 'include' 添加到传递给 fetch() 方法的 init 对象。
+      credentials: 'include'
     })
   } else if (config.method === 'POST') {
     promise = await fetch(reqUrl, {
       body: JSON.stringify(config.body),
       headers,
-      method: 'POST'
+      method: 'POST',
+      credentials: 'include'
     })
   } else {
     promise = await fetch(reqUrl, {
       body: JSON.stringify(config.body),
       headers,
-      method: config.method
+      method: config.method,
+      credentials: 'include'
     })
   }
-  
+
   return await handleRes(promise)
 }
 
@@ -61,7 +66,7 @@ const handleRes = async (res) => {
   // 请求失败，返回解析之后的失败的数据
   const error = parsedRes
   // ! 控制台抛出错误
-  throw error 
+  throw error
 }
 
 const parseRes = async (res) => {

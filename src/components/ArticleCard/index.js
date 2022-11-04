@@ -16,7 +16,7 @@ const ArticleCard = (props) => {
     <div className={styles.Article}>
       <header>
         <Link href={`/posts/[pid]`} as={`/posts/${props.article.id}`}>
-          <a><h2>{props.article.title}</h2></a>
+          <h2>{props.article.title}</h2>
         </Link>
       </header>
       <main className="text-cut">{props.article.digest}</main>

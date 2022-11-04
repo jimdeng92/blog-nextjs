@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './index.module.scss'
 import { useRouter } from 'next/router'
+import Icon from '../Icon'
 
 const Tool = (props) => {
   const router = useRouter()
@@ -76,30 +77,26 @@ const Tool = (props) => {
   return (
     <div className={styles.Tool}>
       {
-        topFlag && 
-        <div 
+        topFlag &&
+        <div
           title="返回顶部"
           className={styles.iconsContainer}
           onClick={handleBackToTop}
         >
-          <svg className="icon" aria-hidden="true">
-            <use xlinkHref="#icon-top"></use>
-          </svg>
+          <Icon name="Repeat" />
         </div>
       }
       {
-        router.pathname !== '/home' && 
-          <div 
+        router.pathname !== '/home' &&
+          <div
             title="返回首页"
             className={styles.iconsContainer}
             onClick={handleBackToHome}
           >
-            <svg className="icon" aria-hidden="true">
-              <use xlinkHref="#icon-home"></use>
-            </svg>
+            <Icon name="Home" />
           </div>
       }
-      {/* <div 
+      {/* <div
         title="搜索"
         className={styles.iconsContainer}
         onClick={handleSearchToggle}
@@ -107,15 +104,15 @@ const Tool = (props) => {
         <svg className="icon" aria-hidden="true">
           <use xlinkHref="#icon-search"></use>
         </svg>
-        <div 
+        <div
           className={[
             `${styles.searchWrapper}`,
             `${searchVisible ? styles.visible : ''}`
           ].join(' ')
-          } 
+          }
         >
-          <input 
-            value={searchVal} 
+          <input
+            value={searchVal}
             onChange={handleSearchChange}
             onKeyUp={handleSearchKeyUp}
             ref={inputEl}
@@ -124,14 +121,12 @@ const Tool = (props) => {
           </input>
         </div>
       </div> */}
-      <div 
+      <div
         title="切换主题"
-        className={[`${hasTheme ? styles.eye : ''}`, styles.iconsContainer].join(' ')} 
+        className={[`${hasTheme ? styles.eye : ''}`, styles.iconsContainer].join(' ')}
         onClick={handleTheme}
       >
-        <svg className="icon" aria-hidden="true">
-          <use xlinkHref="#icon-theme"></use>
-        </svg>
+        <Icon name="Palette"/>
       </div>
     </div>
   )

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import Head from 'next/head'
+import Script from 'next/script'
 
 
 const IndexPage = (props) => {
@@ -18,9 +19,7 @@ const IndexPage = (props) => {
       <meta name="description" content={props.digest || 'JimDeng 的个人博客，记录生活点滴，学习心得。关于 CSS/JavaScript/Vue/React/Webpack/Node/Nextjs/小程序/面试'} />
       <link rel="icon" href="/favicon.ico" />
       {/* 友盟统计 */}
-      <script type="text/javascript" src="https://s9.cnzz.com/z_stat.php?id=1279718538&web_id=1279718538"></script>
-      {/* iconfont */}
-      <script src="//at.alicdn.com/t/font_2130365_fmms2mpu4vg.js"></script>
+      <Script src="https://s9.cnzz.com/z_stat.php?id=1279718538&web_id=1279718538" />
       <title>{props.title || 'Jim\'s Space'}</title>
     </Head>
   )

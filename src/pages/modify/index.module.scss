@@ -1,0 +1,51 @@
+.Modify {
+  padding: 0 15px 80px;
+  display: flex;
+  flex-direction: column;
+  > .title {
+    font-size: 32px;
+    color: var(--color-text-0);
+    margin: 60px 0 40px;
+    line-height: 1.7;
+
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--bg-color);
+  }
+  .markdownBody {
+    box-sizing: border-box;
+    min-width: 200px;
+    max-width: 980px;
+    margin: 0 auto;
+    color: var(--primary-color);
+  }
+  .textarea {
+    box-sizing: border-box;
+    min-width: 200px;
+    max-width: 980px;
+    color: var(--primary-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--bg-color);
+    resize: vertical;
+  }
+
+  @media (max-width: 767px) {
+    .markdownBody {
+
+    }
+  }
+
+  .actionBlock {
+    padding: 10px 0;
+    display: flex;
+    justify-content: flex-end;
+    .confirmButton, .cancelButton {
+      font-size: 14px;
+      margin-left: 10px;
+      cursor: pointer;
+      color: var(--link-color);
+    }
+
+  }
+}
