@@ -44,7 +44,7 @@ const Posts = ({posts, hitokoto}) => {
           <ErrorBoundary>
             <article className={[`${styles.markdownBody}`, 'markdown-body'].join(' ')} dangerouslySetInnerHTML={createMarkup()}></article>
             {/* 编辑 */}
-            <Link href={`/modify/[pid]`} as={`/modify/${posts.id}`} className={styles.modifyButton}>
+            <Link href={`/modify-blog/[pid]`} as={`/modify-blog/${posts.id}`} className={styles.modifyButton}>
               编辑
             </Link>
           </ErrorBoundary>

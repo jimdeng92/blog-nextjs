@@ -10,7 +10,7 @@
   margin: 0 auto;
   line-height: 1.8;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-shrink: 0;
 }
@@ -22,9 +22,9 @@
   overflow:hidden;
 }
 
-.FooterItem:last-of-type {
+/* .FooterItem:last-of-type {
   text-align: right;
-}
+} */
 
 .reference, .adams {
   color: var(--second-color);

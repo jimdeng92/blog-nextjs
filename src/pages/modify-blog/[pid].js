@@ -74,9 +74,8 @@ const Modify = ({posts, hitokoto}) => {
       if (resData.code !== 200) throw resData
 
       toast.success('更新成功！')
-      router.push('/posts/' + pid)
+      router.back()
     } catch(e) {
-      console.log(e)
       toast.error(e.message)
     }
   }
@@ -92,10 +91,10 @@ const Modify = ({posts, hitokoto}) => {
           {
             // posts.html &&
             <ErrorBoundary>
-              <textarea className={styles.textarea} value={content} rows={20} onChange={handleContentChange} />
+              <textarea className={styles.textarea} value={content} rows={36} onChange={handleContentChange} />
               <div className={styles.actionBlock}>
                 <a className={styles.confirmButton} onClick={handleConfirm}>确认修改</a>
-                <a className={styles.cancelButton}>取消</a>
+                <a className={styles.cancelButton} onClick={router.back()}>取消</a>
               </div>
             </ErrorBoundary>
           }
