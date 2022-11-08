@@ -53,6 +53,7 @@ const Posts = ({posts, hitokoto}) => {
                   </header>
                   <Link href={`/modify-blog/[pid]`} as={`/modify-blog/${posts.id}`} className={styles.modifyButton}>
                     <Icon name="Edit" />
+                    <span> 编辑</span>
                   </Link>
                 </div>
                 <div className="post-body" dangerouslySetInnerHTML={createMarkup()}></div>

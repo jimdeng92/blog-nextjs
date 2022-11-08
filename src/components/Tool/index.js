@@ -57,7 +57,7 @@ const Tool = (props) => {
           className={styles.iconsContainer}
           onClick={handleBackToTop}
         >
-          <Icon name="Repeat" />
+          <Icon name="ChevronsUp" />
         </div>
       }
       {
