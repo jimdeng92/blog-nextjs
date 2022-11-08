@@ -5,6 +5,7 @@ import Icon from '../../components/Icon'
 import { login } from '../../api/users'
 import { ToastContainer, toast, Flip } from 'react-toastify';
 import { useRouter } from 'next/router'
+import Footer from '../../components/Footer';
 
 export default function LogIn() {
   const router = useRouter()
@@ -63,6 +64,7 @@ export default function LogIn() {
         </div>
       </div>
       <ToastContainer transition={Flip} />
+      <Footer fixed />
     </>
   )
 }

@@ -1,5 +1,9 @@
 # BLOG_NEXTJS
 
+## TODO
+
+- [ ]
+
 ## 项目介绍
 
 利用 react 服务端框架 [Nextjs](https://nextjs.org/) 写的博客，喜欢请给个 Star 支持一下。
@@ -109,19 +113,19 @@ const Posts = ({posts, hitokoto}) => {
   return (
     <Layout hitokoto={hitokoto} title={posts.title} digest={posts.digest}>
       {
-        router.isFallback ? 
-        <Loading /> : 
+        router.isFallback ?
+        <Loading /> :
         <div className={styles.Detail}>
           <h2 className={styles.title}>{posts.title}</h2>
           {
-            posts.html && 
+            posts.html &&
             <ErrorBoundary>
               <article className={[`${styles.markdownBody}`, 'markdown-body'].join(' ')} dangerouslySetInnerHTML={createMarkup()}></article>
             </ErrorBoundary>
           }
         </div>
       }
-      
+
     </Layout>
   )
 }
@@ -172,7 +176,7 @@ import {useRouter} from 'next/router'
 
 export default function Index() {
   const router = useRouter()
-  
+
   useEffect(() => {
     router.prefetch('/home') // 预取
     if (router.pathname === '/') {

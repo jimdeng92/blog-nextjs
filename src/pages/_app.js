@@ -2,11 +2,11 @@ import React, {useEffect} from 'react'
 import PropTypes from 'prop-types'
 import 'dayjs/locale/zh-cn'
 // 全局样式
-import '../styles/variable.css'
-import '../styles/global.css'
-import '../styles/common.css'
+import '../styles/variable.scss'
+import '../styles/global.scss'
+import '../styles/markdown.scss'
 // import 'highlight.js/scss/github.scss'
-import 'github-markdown-css'
+// import 'github-markdown-css'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import {useRouter} from 'next/router'
@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }) {
     (function() {
       var hm = document.createElement("script");
       hm.src = "https://hm.baidu.com/hm.js?3f5f6f32015075cc5e29b7d50b6e9917";
-      var s = document.getElementsByTagName("script")[0]; 
+      var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
   })

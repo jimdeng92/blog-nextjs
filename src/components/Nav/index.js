@@ -6,8 +6,8 @@ import Icon from '../Icon'
 
 const navList = [
   { id: 1, iconName: 'Home', desc: '首页', to: '/home' },
-  { id: 2, iconName: 'Code', desc: '代码', to: '/code' },
-  { id: 3, iconName: 'Pencil', desc: '随笔', to: '/essay' }
+  { id: 2, iconName: 'Code', desc: '技术', to: '/code' },
+  { id: 3, iconName: 'Coffee', desc: '生活', to: '/essay' }
 ]
 
 const Nav = () => {

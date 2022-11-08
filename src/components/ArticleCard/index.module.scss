@@ -30,6 +30,13 @@
   }
   main {
     line-height: 2;
+    &.textCut {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
   }
   footer {
     padding: 40px 0;

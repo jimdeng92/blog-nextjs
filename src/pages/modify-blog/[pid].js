@@ -54,6 +54,10 @@ const Modify = ({posts, hitokoto}) => {
     setContent(e.target.value)
   }
 
+  const handleSelectChange = (e) => {
+    setArticleType(e.target.value)
+  }
+
   // 确认修改
   const handleConfirm = async () => {
     if (!title) {
@@ -74,10 +78,14 @@ const Modify = ({posts, hitokoto}) => {
       if (resData.code !== 200) throw resData
 
       toast.success('更新成功！')
-      router.back()
+      handleCancel()
     } catch(e) {
       toast.error(e.message)
     }
+  }
+
+  const handleCancel = () => {
+    router.back()
   }
 
 
@@ -87,14 +95,21 @@ const Modify = ({posts, hitokoto}) => {
         router.isFallback ?
         <Loading /> :
         <div className={styles.Modify}>
-          <input type="text" value={title} className={styles.title} onChange={handleSetTitle} />
+           <div className={styles.selection}>
+            <input type="text" value={title} className={styles.title} onChange={handleSetTitle} />
+            <select placeholder="请选择文章类型" value={articleType} onChange={handleSelectChange} className={styles.articleType}>
+              <option value={5}>技术</option>
+              <option value={10}>生活</option>
+            </select>
+           </div>
+
           {
             // posts.html &&
             <ErrorBoundary>
               <textarea className={styles.textarea} value={content} rows={36} onChange={handleContentChange} />
               <div className={styles.actionBlock}>
                 <a className={styles.confirmButton} onClick={handleConfirm}>确认修改</a>
-                <a className={styles.cancelButton} onClick={router.back()}>取消</a>
+                <a className={styles.cancelButton} onClick={handleCancel}>取消</a>
               </div>
             </ErrorBoundary>
           }

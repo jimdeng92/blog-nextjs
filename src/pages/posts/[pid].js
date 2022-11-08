@@ -9,7 +9,8 @@ import Loading from '../../components/Loading'
 import {useRouter} from 'next/router'
 import Link from 'next/link'
 import { marked } from 'marked'
-import 'highlight.js/styles/stackoverflow-light.css'
+import 'highlight.js/styles/atom-one-dark.css'
+import Icon from '../../components/Icon'
 
 const Posts = ({posts, hitokoto}) => {
   const router = useRouter()
@@ -24,7 +25,10 @@ const Posts = ({posts, hitokoto}) => {
   //   hljs.highlightElement(markdownBody)
   // });
   useEffect(()=>{
-    hljs.highlightAll()
+    // hljs.highlightAll()
+    document.querySelectorAll('pre code').forEach((el) => {
+      hljs.highlightElement(el);
+    });
   })
 
   function createMarkup() {
@@ -40,17 +44,23 @@ const Posts = ({posts, hitokoto}) => {
         router.isFallback ?
         <Loading /> :
         <div className={styles.Detail}>
-          <h2 className={styles.title}>{posts.title}</h2>
           <ErrorBoundary>
-            <article className={[`${styles.markdownBody}`, 'markdown-body'].join(' ')} dangerouslySetInnerHTML={createMarkup()}></article>
-            {/* 编辑 */}
-            <Link href={`/modify-blog/[pid]`} as={`/modify-blog/${posts.id}`} className={styles.modifyButton}>
-              编辑
-            </Link>
+            <div id="posts" className="posts-expand">
+              <article className={[`${styles.markdownBody}`, 'post'].join(' ')} >
+                <div className={styles.titleWrapper}>
+                  <header className="post-header">
+                    <h1 className="post-title">{posts.title}</h1>
+                  </header>
+                  <Link href={`/modify-blog/[pid]`} as={`/modify-blog/${posts.id}`} className={styles.modifyButton}>
+                    <Icon name="Edit" />
+                  </Link>
+                </div>
+                <div className="post-body" dangerouslySetInnerHTML={createMarkup()}></div>
+              </article>
+            </div>
           </ErrorBoundary>
         </div>
       }
-
     </Layout>
   )
 }

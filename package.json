@@ -11,6 +11,7 @@
     "pm2": "cross-env NODE_ENV=production pm2 start ecosystem.config.js"
   },
   "dependencies": {
+    "color-themes-for-google-code-prettify": "^2.0.4",
     "compression": "^1.7.4",
     "dayjs": "^1.10.4",
     "express": "^4.17.1",
@@ -33,6 +34,7 @@
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.26.0",
     "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-next": "^13.0.2",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-next": "^0.0.0",
     "eslint-plugin-react": "^7.22.0"

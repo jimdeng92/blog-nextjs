@@ -59,15 +59,15 @@ const CreateBlog = () => {
     <>
       <Wrapper>
         <div className={styles.Create}>
-          <p className={styles.createTitle}>{'Jim\'s Space 新建'}</p>
+          <p className={styles.createTitle}>{'Jim\'s Space 新建文章'}</p>
           <div className={styles.selection}>
             <input type="text" value={title} className={styles.title} onChange={handleSetTitle} placeholder="请输入标题" />
-            <select placeholder="请选择文章类型" onChange={handleSelectChange} className={styles.articleType}>
-              <option value={5}>首页</option>
-              <option value={10}>笔记</option>
+            <select placeholder="请选择文章类型" value={articleType} onChange={handleSelectChange} className={styles.articleType}>
+              <option value={5}>技术</option>
+              <option value={10}>生活</option>
             </select>
           </div>
-          <textarea className={styles.textarea} value={content} rows={36} onChange={handleContentChange} placeholder="请输入内容..." />
+          <textarea className={styles.textarea} value={content} onChange={handleContentChange} placeholder="请输入内容..." />
           <div className={styles.actionBlock}>
             <a className={styles.confirmButton} onClick={handleConfirm}>确认提交</a>
             <a className={styles.cancelButton} onClick={handleCancel}>取消</a>

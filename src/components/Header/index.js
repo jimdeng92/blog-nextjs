@@ -41,18 +41,6 @@ const Header = (props) => {
             </Link>
           </h2>
           <div className={styles.HeaderTitleIcons}>
-            {/* cdn */}
-            {/* <a
-              className={styles.iconsContainer}
-              href="https://imlinhe.com/cdn"
-              rel="noopener noreferrer"
-              target="_blank"
-              title="CDN"
-            >
-              <svg className="icon" aria-hidden="true">
-                <use xlinkHref="#icon-cdn"></use>
-              </svg>
-            </a> */}
             {/* email */}
             <a
               className={styles.iconsContainer}
@@ -74,26 +62,9 @@ const Header = (props) => {
               <Icon name='Github' />
             </a>
             {/* login */}
-            <div className={styles.iconsContainer}>
-              <Link href="/log-in" title="登录">
-                <Icon name='LogIn' />
-              </Link>
-            </div>
-            {/* <div
-              className={styles.iconsContainer}
-              onMouseEnter={() => {setWechatVisible(true)}}
-              onMouseLeave={() => {setWechatVisible(false)}}
-            >
-              <svg className="icon" aria-hidden="true">
-                <use xlinkHref="#icon-weixin"></use>
-              </svg>
-              {
-                wechatVisible &&
-                <div className={styles.wechatWrapper}>
-                  <img src='/wechat.jpg' alt="wechat" />
-                </div>
-              }
-            </div> */}
+            <Link href="/log-in" title="登录" className={styles.iconsContainer}>
+              <Icon name='LogIn' />
+            </Link>
           </div>
         </div>
         <div className={styles.HeaderNavbar}>

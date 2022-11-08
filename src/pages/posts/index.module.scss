@@ -1,28 +1,21 @@
 .Detail {
-  padding: 0 15px 80px;
-  > .title {
-    font-size: 32px;
-    color: var(--color-text-0);
-    margin: 60px 0 40px;
-    line-height: 1.7;
-  }
-  .markdownBody {
-    box-sizing: border-box;
-    min-width: 200px;
-    max-width: 980px;
-    margin: 0 auto;
-    color: var(--primary-color);
-  }
-  @media (max-width: 767px) {
-    .markdownBody {
-
+  .titleWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    .title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .modifyButton {
+      // font-size: 14px;
+      flex-shrink: 0;
+      &:hover {
+        color: var(--link-color);
+      }
     }
   }
 
-  .modifyButton {
-    font-size: 14px;
-    &:hover {
-      color: var(--link-color);
-    }
-  }
 }

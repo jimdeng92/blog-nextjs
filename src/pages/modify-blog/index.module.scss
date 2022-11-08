@@ -2,16 +2,44 @@
   padding: 0 15px 80px;
   display: flex;
   flex-direction: column;
-  > .title {
-    font-size: 32px;
-    color: var(--color-text-0);
-    margin: 60px 0 40px;
-    line-height: 1.7;
+  .selection {
+    display: flex;
+    align-items: center;
+    .title {
+      flex: 1;
+      // font-size: 16px;
+      color: var(--color-text-0);
+      margin: 60px 0 40px;
+      height: 36px;
 
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    background-color: var(--bg-color);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      background-color: var(--bg-color);
+    }
+    .articleType {
+      flex-shrink: 0;
+      width: 160px;
+      height: 36px;
+
+      // font-size: 28px;
+      color: var(--color-text-0);
+      margin: 60px 0 40px 20px;
+
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      background-color: var(--bg-color);
+    }
   }
+  // > .title {
+  //   font-size: 32px;
+  //   color: var(--color-text-0);
+  //   margin: 60px 0 40px;
+  //   line-height: 1.7;
+
+  //   border: 1px solid var(--border-color);
+  //   border-radius: 4px;
+  //   background-color: var(--bg-color);
+  // }
   .markdownBody {
     box-sizing: border-box;
     min-width: 200px;
