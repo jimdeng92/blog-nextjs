@@ -25,6 +25,11 @@ const Tool = (props) => {
 
   // 返回顶部
   function handleBackToTop() {
+    // window.scrollTo({
+    //   top: 0,
+    //   left: 0,
+    //   behavior: "smooth"
+    // })
     document.documentElement.scrollIntoView({
       behavior: 'smooth',
       block: 'start'
