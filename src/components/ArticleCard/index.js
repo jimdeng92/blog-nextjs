@@ -19,7 +19,7 @@ const ArticleCard = (props) => {
           <h2>{props.article.title}</h2>
         </Link>
       </header>
-      <main className={styles.textCut}>{props.article.digest}</main>
+      <main className={styles.textCut}>{props.article.digest}...</main>
       <footer>
         <span>{dayjs().from(props.article.createdAt, true)}前发布</span>
         {/* <span>248 条评论</span>
