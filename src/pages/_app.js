@@ -5,6 +5,7 @@ import 'dayjs/locale/zh-cn'
 import '../styles/variable.scss'
 import '../styles/global.scss'
 import '../styles/markdown.scss'
+import 'react-toastify/dist/ReactToastify.css';
 // import 'highlight.js/scss/github.scss'
 // import 'github-markdown-css'
 import NProgress from 'nprogress'

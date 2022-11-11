@@ -17,10 +17,10 @@ const IndexPage = (props) => {
       <meta name="theme-color" content="#000000" />
       <meta name="keywords" content={props.title || 'Jim\'s Space'} />
       <meta name="description" content={props.digest || 'JimDeng 的个人博客，记录生活点滴，学习心得。关于 CSS/JavaScript/Vue/React/Webpack/Node/Nextjs/小程序/面试'} />
-      <link rel="icon" href="/favicon.ico" />
+      <link rel="icon" href="/j_logo.png" />
       <link href="https://fonts.googlefonts.cn/css?family=Monda:400,700|PT+Mono|Roboto+Slab:300,400,700" rel="stylesheet" />
-      {/* 友盟统计 */}
-      <Script src="https://s9.cnzz.com/z_stat.php?id=1279718538&web_id=1279718538" />
+      {/* 百度统计 */}
+      <Script src="https://hm.baidu.com/hm.js?dfea8fd4a8de8465e7ac012f6e174cb1" />
       <title>{props.title || 'Jim\'s Space'}</title>
     </Head>
   )

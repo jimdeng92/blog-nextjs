@@ -6,6 +6,9 @@ import { login } from '../../api/users'
 import { ToastContainer, toast, Flip } from 'react-toastify';
 import { useRouter } from 'next/router'
 import Footer from '../../components/Footer';
+import {aesEncrypt} from '../../utils/crypto'
+import NavBar from '../../components/NavBar';
+import IndexPage from '../../components/IndexPage';
 
 export default function LogIn() {
   const router = useRouter()
@@ -35,12 +38,14 @@ export default function LogIn() {
       return
     }
 
+    // 密码加密
+    const ciphertext = aesEncrypt(password, process.env.NEXT_PUBLIC_SECRET_KEY)
+
     try {
-      let resData = await login({username: account, password})
-      if (resData.code === 200) {
-        toast.success('登录成功！')
-        router.push('/home')
-      }
+      let resData = await login({username: account, password: ciphertext})
+      if (resData.code !== 200) throw new Error(resData)
+      toast.success('登录成功！')
+      router.push('/home')
     } catch(e) {
       toast.error(e.message)
     }
@@ -48,9 +53,15 @@ export default function LogIn() {
 
   return (
     <>
+      <IndexPage />
+      <NavBar />
       <div className={styles.LogIn}>
         <div className={styles.LogInWrapper}>
-          <p className={styles.LogInTitle}>{'Jim\'s Space Login'}</p>
+
+          <div className={styles.LogInTitle}>
+            <img src="/j_logo.png" />
+            <p>{'Jim\'s Space Login'}</p>
+          </div>
           <div className={styles.AccountInput}>
             <div className={styles.Icons}><Icon name="User" /></div>
             <input type="text" value={account}  onChange={(e) => handleInputChange(e, 'ACCOUNT')} />

@@ -6,6 +6,7 @@ import Wrapper from '../Wrapper'
 import {useRouter} from 'next/router'
 import Link from 'next/link'
 import Icon from '../Icon'
+import NavBar from '../NavBar'
 
 const Header = (props) => {
   const router = useRouter()
@@ -82,15 +83,7 @@ const Header = (props) => {
         </Wrapper>
       </div>
       {
-        navbarVisible &&
-        <div className={styles.NavBar}>
-          <Wrapper>
-            <div className={styles.NavBarWrapper}>
-              <p>{title}</p>
-              <Nav {...props} />
-            </div>
-          </Wrapper>
-        </div>
+        navbarVisible && <NavBar title={props.title} />
       }
     </div>
   )

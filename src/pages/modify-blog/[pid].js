@@ -8,7 +8,6 @@ import Loading from '../../components/Loading'
 import {useRouter} from 'next/router'
 import { updateBlog, getBlogDetailById } from '../../api/posts'
 import { ToastContainer, toast, Flip } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 const Modify = ({posts, hitokoto}) => {
   const router = useRouter()

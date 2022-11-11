@@ -13,6 +13,8 @@
   "dependencies": {
     "color-themes-for-google-code-prettify": "^2.0.4",
     "compression": "^1.7.4",
+    "cross-env": "^7.0.3",
+    "crypto-js": "^4.1.1",
     "dayjs": "^1.10.4",
     "express": "^4.17.1",
     "github-markdown-css": "^4.0.0",
@@ -27,8 +29,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-toastify": "^9.1.1",
-    "sass": "^1.32.6",
-    "cross-env": "^7.0.3"
+    "sass": "^1.32.6"
   },
   "devDependencies": {
     "cz-conventional-changelog": "^3.3.0",
