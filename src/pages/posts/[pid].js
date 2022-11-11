@@ -49,10 +49,14 @@ const Posts = ({posts, hitokoto}) => {
               <article className={[`${styles.markdownBody}`, 'post'].join(' ')} >
                 <div className={styles.titleWrapper}>
                   <h1 className={['post-title', 'post-header', styles.title].join(' ')}>{posts.title}</h1>
-                  <Link href={`/modify-blog/[pid]`} as={`/modify-blog/${posts.id}`} className={styles.modifyButton}>
-                    <Icon name="Edit" />
-                    {/* <Icon name="Trash2" /> */}
-                  </Link>
+                  <div className={styles.actionBlock}>
+                    <Link href={`/modify-blog/[pid]`} as={`/modify-blog/${posts.id}`} className={styles.modifyButton}>
+                      <Icon name="Edit" />
+                    </Link>
+                    <div className={styles.deleteButton}>
+                      <Icon name="Trash2" />
+                    </div>
+                  </div>
                 </div>
                 <div className="post-body" dangerouslySetInnerHTML={createMarkup()}></div>
               </article>

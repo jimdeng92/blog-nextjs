@@ -9,18 +9,30 @@
       text-overflow: ellipsis;
       white-space: nowrap;
     }
-    .modifyButton {
-      // font-size: 14px;
-      flex-shrink: 0;
-      // width: 40px;
-      // display: flex;
-      // align-items: center;
-      // justify-content: space-between;
-      svg:first-of-type {
+    .actionBlock {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .modifyButton, .deleteButton {
+        padding: 6px 8px;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        line-height: 1;
+        transition: all .5s;
+        &:hover {
+          background-color: var(--border-color);
+          transition: all .5s;
+        }
+      }
+      .modifyButton {
+        // font-size: 14px;
+        flex-shrink: 0;
         color: var(--link-color);
       }
-      svg:nth-of-type(2) {
+      .deleteButton {
         color: var(--error-color);
+        cursor: pointer;
+        margin-left: 10px;
       }
     }
   }
