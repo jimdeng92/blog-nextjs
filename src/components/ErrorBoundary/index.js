@@ -1,11 +1,12 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
     this.state = { error: null, errorInfo: null };
   }
-  
+
   componentDidCatch(error, errorInfo) {
     // Catch errors in any components below and re-render with error message
     this.setState({
@@ -14,7 +15,7 @@ class ErrorBoundary extends React.Component {
     })
     // You can also log error messages to an error reporting service here
   }
-  
+
   render() {
     if (this.state.errorInfo) {
       // Error path
@@ -31,7 +32,11 @@ class ErrorBoundary extends React.Component {
     }
     // Normally, just render children
     return this.props.children;
-  }  
+  }
 }
 
 export default ErrorBoundary
+
+ErrorBoundary.propTypes = {
+  children: PropTypes.element
+}

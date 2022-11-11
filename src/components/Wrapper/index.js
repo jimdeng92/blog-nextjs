@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styles from './index.module.css'
 
 const Wrapper = (props) => {
@@ -10,3 +11,7 @@ const Wrapper = (props) => {
 }
 
 export default Wrapper
+
+Wrapper.propTypes = {
+  children: PropTypes.element
+}

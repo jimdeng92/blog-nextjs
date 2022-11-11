@@ -29,5 +29,5 @@ const Footer = ({fixed}) => {
 export default Footer
 
 Footer.propTypes = {
-  absolute: PropTypes.bool,
+  fixed: PropTypes.bool,
 }
