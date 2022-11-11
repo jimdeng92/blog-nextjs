@@ -12,8 +12,15 @@
     .modifyButton {
       // font-size: 14px;
       flex-shrink: 0;
-      &:hover {
+      // width: 40px;
+      // display: flex;
+      // align-items: center;
+      // justify-content: space-between;
+      svg:first-of-type {
         color: var(--link-color);
+      }
+      svg:nth-of-type(2) {
+        color: var(--error-color);
       }
     }
   }

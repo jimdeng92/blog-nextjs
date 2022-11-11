@@ -5,8 +5,8 @@ const next = require("next");
 const compression = require('compression')
 // const {createProxyMiddleware} = require("http-proxy-middleware");
 
-console.log(process.env.NODE_ENV)
-const port = parseInt(process.env.PORT, 10) || 10001;
+console.log('process.env.NODE_ENV --- ', process.env.NODE_ENV)
+const port = 9900;
 const dev = process.env.NODE_ENV !== "production";
 const app = next({dev, conf: nextConf});
 const handle = app.getRequestHandler();

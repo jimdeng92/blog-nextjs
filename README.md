@@ -3,8 +3,10 @@
 ## TODO
 
 - [x] 登录加密
-- [ ] readme 修改
+- [x] readme 更新
 - [x] logo 替换
+- [x] title修改、description 修改
+- [x] 添加博客、分页设置
 - [ ] 删除博客功能
 - [ ] 添加 eslint
 - [ ] 添加 TS
@@ -17,14 +19,14 @@
 
 ## 项目架构
 
-这是项目的前端部分，还有`管理系统`和`后端服务提供`。
+这是项目的前端部分。
 
 主要技术栈包括：
 
 - Nextjs
 - React
-- AntDesign
-- Linux
+- TypeScript
+
 - Nginx
 - MySql
 - Express
@@ -34,44 +36,29 @@
 
 ## 安装
 
-1. 运行此项目请 clone 本项目的 github 地址，并修改 utils/fetch 下的 baseUrl 为 `'https://imlinhe.com'`
+1. 运行此项目请 clone 本项目到本地，然后安装依赖运行
 
 ```
-// 访问线上接口
-// export const baseUrl = 'https://imlinhe.com'
+git clone git@github.com:jimdeng92/blog-nextjs.git
 
-export const baseUrl = process.env.HOST
+cd blog-nextjs
+
+npm install
+
+npm run dev
 ```
 
-2. 安装依赖，运行
-
-```
-yarn
-
-yarn dev
-```
-
-3. 部署
-
-```
-yarn build
-// 需要全局安装pm2
-yarn pm2
-```
-
-4. 访问 `localhost:10001`
+打开`localhost:9900`查看效果
 
 ## 网站截图
 
-> UI 参考 [https://biji.io](https://biji.io/) 搭建。
-
 - 首页
 
-![](./public/image/home_list.png)
+![](./public/image/home.png)
 
-- 详情
+- 文章
 
-![](./public/image/home_detail.png)
+![](./public/image/article.png)
 
 更多页面访问[博客](https://imlinhe.com)
 
@@ -235,23 +222,11 @@ MyApp.propTypes = {
 ```
 
 
-<center>------------------ **教程结束，以下为开发者计划和备忘** --------------------</center>
-
-### TODO
-
-- [x] ESLint
-- [x] Vercel
-- [x] title修改、description 修改
-- [x] 添加博客、分页设置
-- [ ] redux
-- [ ] 缓存问题
-- [ ] 记录部署过程
-- [ ] 前端接口不进行验证（其他验证）
-- [ ] 查询服务器状态、日志整理
+<center>------------------ **文档结束，以下为开发者记录** --------------------</center>
 
 ### 服务器部署
 
-git push 到 git 服务器，在 Linux 上 git pull，执行 `npm run build`，再执行 `npm run pm2`.
+`git push` 到 github，在 Linux 上 `git fetch & git rebase`，执行 `npm install --production & npm run build`，再执行 `pm2 restart blog-nextjs`。
 
 ### QA
 
@@ -261,3 +236,8 @@ git push 到 git 服务器，在 Linux 上 git pull，执行 `npm run build`，�
 
 3. 添加文章出现在列表中，而访问出现 404 的问题，通过设置 fallback: true 解决，但是设置后打包报错，需要通过路由 router.isFallback 判断显示loading。
 
+4. css module 多类名。
+
+``` jsx
+<article className={[styles.markdownBody, 'markdown-body'].join(' ')}></article>
+```

@@ -48,12 +48,10 @@ const Posts = ({posts, hitokoto}) => {
             <div id="posts" className="posts-expand">
               <article className={[`${styles.markdownBody}`, 'post'].join(' ')} >
                 <div className={styles.titleWrapper}>
-                  <header className="post-header">
-                    <h1 className="post-title">{posts.title}</h1>
-                  </header>
+                  <h1 className={['post-title', 'post-header', styles.title].join(' ')}>{posts.title}</h1>
                   <Link href={`/modify-blog/[pid]`} as={`/modify-blog/${posts.id}`} className={styles.modifyButton}>
                     <Icon name="Edit" />
-                    <span> 编辑</span>
+                    {/* <Icon name="Trash2" /> */}
                   </Link>
                 </div>
                 <div className="post-body" dangerouslySetInnerHTML={createMarkup()}></div>
