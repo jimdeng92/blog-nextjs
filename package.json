@@ -8,7 +8,8 @@
     "build": "next build",
     "export": "next build && next export -o outdir",
     "start": "cross-env NODE_ENV=production node server.js",
-    "pm2": "cross-env NODE_ENV=production pm2 start ecosystem.config.js"
+    "pm2": "cross-env NODE_ENV=production pm2 start ecosystem.config.js",
+    "restart": "next build && pm2 restart blog-nextjs"
   },
   "dependencies": {
     "color-themes-for-google-code-prettify": "^2.0.4",
