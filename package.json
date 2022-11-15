@@ -9,9 +9,11 @@
     "export": "next build && next export -o outdir",
     "start": "cross-env NODE_ENV=production node server.js",
     "pm2": "cross-env NODE_ENV=production pm2 start ecosystem.config.js",
-    "restart": "next build && pm2 restart blog-nextjs"
+    "restart": "git pull && npm install && next build && pm2 restart blog-nextjs",
+    "deploy": "./deploy.sh"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.6",
     "color-themes-for-google-code-prettify": "^2.0.4",
     "compression": "^1.7.4",
     "cross-env": "^7.0.3",
@@ -26,9 +28,9 @@
     "next": "^13.0.1",
     "nprogress": "^0.2.0",
     "prop-types": "^15.7.2",
-    "qs": "^6.9.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-popper": "^2.3.0",
     "react-toastify": "^9.1.1",
     "sass": "^1.32.6"
   },
