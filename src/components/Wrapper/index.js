@@ -13,5 +13,5 @@ const Wrapper = (props) => {
 export default Wrapper
 
 Wrapper.propTypes = {
-  children: PropTypes.element
+  children: PropTypes.node.isRequired
 }

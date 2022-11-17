@@ -1,6 +1,7 @@
-import React, {useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {getList, getDetailById, getHitokoto} from '../../api'
+import { deleteBlog } from '../../api/posts'
 import styles from './index.module.scss'
 import ErrorBoundary from '../../components/ErrorBoundary' // 错误边界
 import hljs from 'highlight.js'
@@ -11,6 +12,8 @@ import Link from 'next/link'
 import { marked } from 'marked'
 import 'highlight.js/styles/atom-one-dark.css'
 import Icon from '../../components/Icon'
+import { ToastContainer, toast, Flip } from 'react-toastify';
+// import Popover from '../../components/Popover'
 
 const Posts = ({posts, hitokoto}) => {
   const router = useRouter()
@@ -38,6 +41,18 @@ const Posts = ({posts, hitokoto}) => {
     }
   }
 
+  const handleDelete = async () => {
+    try {
+      const resData = await deleteBlog({id: posts.id})
+      if (resData.code !== 200) throw resData
+
+      toast.success('删除成功！')
+      router.replace('/')
+    } catch(e) {
+      toast.error(e.message)
+    }
+  }
+
   return (
     <Layout hitokoto={hitokoto} title={posts.title} digest={posts.digest}>
       {
@@ -53,12 +68,27 @@ const Posts = ({posts, hitokoto}) => {
                     <Link href={`/modify-blog/[pid]`} as={`/modify-blog/${posts.id}`} className={styles.modifyButton}>
                       <Icon name="Edit" />
                     </Link>
-                    <div className={styles.deleteButton}>
+                    <div className={styles.deleteButton} onClick={handleDelete}>
                       <Icon name="Trash2" />
+                      {/* <Popover tooltip={
+                        <>
+                          <p>确认删除吗?</p>
+                          <div>
+                            <Icon name="Check" />
+                          </div>
+                          <div>
+                            <Icon name="X" />
+                          </div>
+                        </>
+                      }>
+                        <Icon name="Trash2" />
+                      </Popover> */}
                     </div>
                   </div>
                 </div>
                 <div className="post-body" dangerouslySetInnerHTML={createMarkup()}></div>
+
+                <ToastContainer transition={Flip} />
               </article>
             </div>
           </ErrorBoundary>
