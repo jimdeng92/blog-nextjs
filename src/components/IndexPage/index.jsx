@@ -5,7 +5,8 @@ import Script from 'next/script'
 
 const IndexPage = (props) => {
   return (
-    <Head>
+    <>
+      <Head>
       <meta charSet="utf-8" />
       <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
       <meta name="renderer" content="webkit" />
@@ -19,11 +20,11 @@ const IndexPage = (props) => {
       <link rel="icon" href="/j_logo.png" />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin={true} />
-      <link href="https://fonts.googleapis.com/css2?family=Monda:wght@400;700&family=PT+Mono&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
-      {/* 百度统计 */}
-      <Script src="https://hm.baidu.com/hm.js?dfea8fd4a8de8465e7ac012f6e174cb1" />
       <title>{props.title || 'Jim\'s Space'}</title>
     </Head>
+      {/* 百度统计 */}
+      <Script src="https://hm.baidu.com/hm.js?dfea8fd4a8de8465e7ac012f6e174cb1" />
+    </>
   )
 }
 

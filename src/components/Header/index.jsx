@@ -10,7 +10,6 @@ import NavBar from '../NavBar'
 
 function Header (props) {
   const router = useRouter()
-  // const [wechatVisible, setWechatVisible] = React.useState(false)
   const [statementDom, setStatementDom] = React.useState(null)
   const [title, setTitle] = React.useState('Jim\'s Space')
   const [navbarVisible, setNavBarVisible] = React.useState(false)
@@ -83,7 +82,7 @@ function Header (props) {
         </Wrapper>
       </div>
       {
-        navbarVisible && <NavBar title={props.title} />
+        navbarVisible && <NavBar title={title} />
       }
     </div>
   )
