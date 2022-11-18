@@ -1,15 +1,15 @@
 /* global require process */
 const nextConf = require('./next.config')
-const express = require("express");
-const next = require("next");
+const express = require('express')
+const next = require('next')
 const compression = require('compression')
 // const {createProxyMiddleware} = require("http-proxy-middleware");
 
 console.log('process.env.NODE_ENV --- ', process.env.NODE_ENV)
-const port = 9900;
-const dev = process.env.NODE_ENV !== "production";
-const app = next({dev, conf: nextConf});
-const handle = app.getRequestHandler();
+const port = 9900
+const dev = process.env.NODE_ENV !== 'production'
+const app = next({ dev, conf: nextConf })
+const handle = app.getRequestHandler()
 
 // 使用fetch时（全路径），设置代理无效
 // const devProxy = {
@@ -22,11 +22,11 @@ const handle = app.getRequestHandler();
 app
   .prepare()
   .then(() => {
-    const server = express();
+    const server = express()
 
     // gzip 压缩
     if (!dev) {
-      server.use(compression()) //gzip
+      server.use(compression()) // gzip
     }
 
     // 开发环境代理
@@ -41,18 +41,18 @@ app
       handle(req, res)
     })
 
-    server.all("*", (req, res) => {
-      handle(req, res);
-    });
+    server.all('*', (req, res) => {
+      handle(req, res)
+    })
 
     server.listen(port, (err) => {
       if (err) {
-        throw err;
+        throw err
       }
-      console.log(`> Ready on http://localhost:${port}`);
-    });
+      console.log(`> Ready on http://localhost:${port}`)
+    })
   })
   .catch((err) => {
-    console.log("An error occurred, unable to start the server");
-    console.log(err);
-  });
+    console.log('An error occurred, unable to start the server')
+    console.log(err)
+  })

@@ -1,12 +1,11 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
+import { useRouter } from 'next/router'
 import styles from './index.module.scss'
-import Link from 'next/link'
-import {useRouter} from 'next/router'
 import Nav from '../Nav'
 import Wrapper from '../Wrapper'
 
-const NavBar = (props) => {
+function NavBar (props) {
   const router = useRouter()
   const [title, setTitle] = React.useState('Jim\'s Space')
 
@@ -15,7 +14,7 @@ const NavBar = (props) => {
     if (router.pathname === '/posts/[pid]' && props.title) {
       setTitle(props.title)
     }
-  })
+  }, [router.pathname, props.title])
 
   return (
     <div className={styles.NavBar}>

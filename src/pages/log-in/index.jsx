@@ -1,28 +1,28 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react'
 // import PropTypes from 'prop-types'
 import styles from './index.module.scss'
 import Icon from '../../components/Icon'
 import { login } from '../../api/users'
-import { ToastContainer, toast, Flip } from 'react-toastify';
+import { ToastContainer, toast, Flip } from 'react-toastify'
 import { useRouter } from 'next/router'
-import Footer from '../../components/Footer';
-import {aesEncrypt} from '../../utils/crypto'
-import NavBar from '../../components/NavBar';
-import IndexPage from '../../components/IndexPage';
+import Footer from '../../components/Footer'
+import { aesEncrypt } from '../../utils/crypto'
+import NavBar from '../../components/NavBar'
+import IndexPage from '../../components/IndexPage'
 
-export default function LogIn() {
+export default function LogIn () {
   const router = useRouter()
   const [account, setAccount] = useState('')
   const [password, setPassword] = useState('')
 
   const handleInputChange = (e, type) => {
-    switch(type) {
+    switch (type) {
       case 'ACCOUNT':
         setAccount(e.target.value)
-        break;
+        break
       case 'PASSWORD':
         setPassword(e.target.value)
-        break;
+        break
       default:
     }
   }
@@ -42,11 +42,11 @@ export default function LogIn() {
     const ciphertext = aesEncrypt(password, process.env.NEXT_PUBLIC_SECRET_KEY)
 
     try {
-      let resData = await login({username: account, password: ciphertext})
+      const resData = await login({ username: account, password: ciphertext })
       if (resData.code !== 200) throw new Error(resData)
       toast.success('登录成功！')
       router.push('/home')
-    } catch(e) {
+    } catch (e) {
       toast.error(e.message)
     }
   }
@@ -64,7 +64,7 @@ export default function LogIn() {
           </div>
           <div className={styles.AccountInput}>
             <div className={styles.Icons}><Icon name="User" /></div>
-            <input type="text" value={account}  onChange={(e) => handleInputChange(e, 'ACCOUNT')} />
+            <input type="text" value={account} onChange={(e) => handleInputChange(e, 'ACCOUNT')} />
           </div>
           <div className={styles.PasswordInput}>
             <div className={styles.Icons}><Icon name="Lock" /></div>

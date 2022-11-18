@@ -3,23 +3,23 @@ import PropTypes from 'prop-types'
 import ArticleCard from '../ArticleCard'
 import Pagination from '../Pagination'
 import NoData from '../NoData'
-import {useRouter} from 'next/router'
+import { useRouter } from 'next/router'
 // import styles from './index.module.scss'
 
-const ArticleList = ({posts}) => {
+const ArticleList = ({ posts }) => {
   const router = useRouter()
 
-  const handlePageChange = (num) => { 
-    const {pathname} = router
+  const handlePageChange = (num) => {
+    const { pathname } = router
     const tabName = pathname.split('/')[1]
-    
+
     if (num <= 1) {
       router.push(`/${tabName}`)
     } else {
       router.push(
-        `/${tabName}/page/[num]`, 
+        `/${tabName}/page/[num]`,
         `/${tabName}/page/${num}`
-      ) 
+      )
     }
   }
 
@@ -33,12 +33,13 @@ const ArticleList = ({posts}) => {
       }
       {/* 分页器 */}
       {
-        posts.count > 0 ?
-          <Pagination 
-            total={posts.count} 
+        posts.count > 0
+          ? <Pagination
+            total={posts.count}
             current={parseInt(router.query.num) || 1}
-            onChange={(pageNum) => handlePageChange(pageNum)} 
-          /> : null
+            onChange={(pageNum) => handlePageChange(pageNum)}
+          />
+          : null
       }
     </div>
   )

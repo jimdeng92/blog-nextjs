@@ -1,12 +1,12 @@
 import React from 'react'
 import Layout from '../../../components/Layout'
 import PropTypes from 'prop-types'
-import {getHitokoto, getList} from '../../../api'
+import { getHitokoto, getList } from '../../../api'
 import ArticleList from '../../../components/ArticleList'
 import Loading from '../../../components/Loading'
-import {useRouter} from 'next/router'
+import { useRouter } from 'next/router'
 
-export default function Page({posts, hitokoto}) {
+export default function Page ({ posts, hitokoto }) {
   const router = useRouter()
   // 设置 fallback: true 必须进行路由判断，否则打包是无法访问到属性会报错
 
@@ -17,13 +17,12 @@ export default function Page({posts, hitokoto}) {
   )
 }
 
-export async function getStaticProps(context) {
-  const {num} = context.params
+export async function getStaticProps (context) {
+  const { num } = context.params
   const params = {
     pageSize: 10,
     pageNum: num,
-    keyword: '',
-    tabType: 10
+    keyword: ''
   }
 
   const posts = await getList(params)
@@ -34,19 +33,18 @@ export async function getStaticProps(context) {
   }
 }
 
-export async function getStaticPaths() {
-  const {count} = await getList({
+export async function getStaticPaths () {
+  const { count } = await getList({
     pageSize: 10,
     pageNum: 1,
-    keyword: '',
-    tabType: 10
+    keyword: ''
   })
 
   // 总页数
   const totalPage = count ? Math.ceil(count / 10) : 0
 
   const pages = [...Array(totalPage).keys()].map(item => ({
-    params: {num: (item + 1).toString()} // 参数 value 必须是字符串
+    params: { num: (item + 1).toString() } // 参数 value 必须是字符串
   }))
 
   return {
@@ -54,7 +52,6 @@ export async function getStaticPaths() {
     fallback: true // 未返回的任何路径都将产生一个404页面
   }
 }
-
 
 Page.propTypes = {
   posts: PropTypes.object.isRequired,

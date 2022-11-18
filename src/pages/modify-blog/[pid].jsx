@@ -1,27 +1,21 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import {getList, getDetailById, getHitokoto} from '../../api'
+import { useRouter } from 'next/router'
+import { ToastContainer, toast, Flip } from 'react-toastify'
+import { getList, getDetailById, getHitokoto } from '../../api'
 import styles from './index.module.scss'
 import ErrorBoundary from '../../components/ErrorBoundary' // 错误边界
 import Layout from '../../components/Layout'
 import Loading from '../../components/Loading'
-import {useRouter} from 'next/router'
 import { updateBlog, getBlogDetailById } from '../../api/posts'
-import { ToastContainer, toast, Flip } from 'react-toastify';
 
-const Modify = ({posts, hitokoto}) => {
+function Modify ({ posts, hitokoto }) {
   const router = useRouter()
-  const pid = router.query.pid
-  // 设置 fallback: true 必须进行路由判断，否则打包是无法访问到属性会报错
-  // TODO Layout 传参优化
-  if (router.isFallback) {
-    return <Loading />
-  }
+  const { pid } = router.query
 
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
   const [articleType, setArticleType] = useState(5)
-
 
   // 如果路由中有id 就获取初始数据（编辑）
   useEffect(() => {
@@ -29,6 +23,12 @@ const Modify = ({posts, hitokoto}) => {
       getArticleDetail(pid)
     }
   }, [pid])
+
+  // 设置 fallback: true 必须进行路由判断，否则打包是无法访问到属性会报错
+  // TODO Layout 传参优化
+  if (router.isFallback) {
+    return <Loading />
+  }
 
   // 获取文章信息
   const getArticleDetail = async (id) => {
@@ -39,7 +39,7 @@ const Modify = ({posts, hitokoto}) => {
         setContent(resData.data.content)
         setArticleType(resData.data.tabType)
       }
-    } catch(e) {
+    } catch (e) {
       console.error(e)
     }
   }
@@ -73,12 +73,14 @@ const Modify = ({posts, hitokoto}) => {
     }
 
     try {
-      let resData = await updateBlog({id: pid, title, content, tabType: articleType})
+      const resData = await updateBlog({
+        id: pid, title, content, tabType: articleType
+      })
       if (resData.code !== 200) throw resData
 
       toast.success('更新成功！')
       handleCancel()
-    } catch(e) {
+    } catch (e) {
       toast.error(e.message)
     }
   }
@@ -87,33 +89,34 @@ const Modify = ({posts, hitokoto}) => {
     router.back()
   }
 
-
   return (
     <Layout hitokoto={hitokoto} title={posts.title} digest={posts.digest}>
       {
-        router.isFallback ?
-        <Loading /> :
-        <div className={styles.Modify}>
-           <div className={styles.selection}>
-            <input type="text" value={title} className={styles.title} onChange={handleSetTitle} />
-            <select placeholder="请选择文章类型" value={articleType} onChange={handleSelectChange} className={styles.articleType}>
-              <option value={5}>技术</option>
-              <option value={10}>生活</option>
-            </select>
-           </div>
-
-          {
-            // posts.html &&
-            <ErrorBoundary>
-              <textarea className={styles.textarea} value={content} rows={36} onChange={handleContentChange} />
-              <div className={styles.actionBlock}>
-                <a className={styles.confirmButton} onClick={handleConfirm}>确认修改</a>
-                <a className={styles.cancelButton} onClick={handleCancel}>取消</a>
+        router.isFallback
+          ? <Loading />
+          : (
+            <div className={styles.Modify}>
+              <div className={styles.selection}>
+                <input type="text" value={title} className={styles.title} onChange={handleSetTitle} />
+                <select placeholder="请选择文章类型" value={articleType} onChange={handleSelectChange} className={styles.articleType}>
+                  <option value={5}>技术</option>
+                  <option value={10}>生活</option>
+                </select>
               </div>
-            </ErrorBoundary>
+
+              {
+            // posts.html &&
+                <ErrorBoundary>
+                  <textarea className={styles.textarea} value={content} rows={36} onChange={handleContentChange} />
+                  <div className={styles.actionBlock}>
+                    <a className={styles.confirmButton} onClick={handleConfirm}>确认修改</a>
+                    <a className={styles.cancelButton} onClick={handleCancel}>取消</a>
+                  </div>
+                </ErrorBoundary>
           }
-          <ToastContainer transition={Flip} />
-        </div>
+              <ToastContainer transition={Flip} />
+            </div>
+            )
       }
 
     </Layout>
@@ -122,8 +125,8 @@ const Modify = ({posts, hitokoto}) => {
 
 export default Modify
 
-export async function getStaticProps(context) {
-  const {pid} = context.params
+export async function getStaticProps (context) {
+  const { pid } = context.params
 
   const posts = await getDetailById(pid)
   const hitokoto = await getHitokoto()
@@ -133,14 +136,14 @@ export async function getStaticProps(context) {
   }
 }
 
-export async function getStaticPaths() {
-  const {list} = await getList({
+export async function getStaticPaths () {
+  const { list } = await getList({
     pageSize: 999,
     pageNum: 1
   })
 
-  const paths = list.map(item => ({
-    params: {pid: `${item.id}`}
+  const paths = list.map((item) => ({
+    params: { pid: `${item.id}` }
   }))
 
   return {

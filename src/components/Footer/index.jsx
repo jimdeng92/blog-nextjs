@@ -3,7 +3,7 @@ import styles from './index.module.scss'
 import Wrapper from '../Wrapper'
 import PropTypes from 'prop-types'
 
-const Footer = ({fixed}) => {
+const Footer = ({ fixed }) => {
   return (
     <>
       <div className={[styles.Footer, fixed && styles.fixed].join(' ')}>
@@ -29,5 +29,5 @@ const Footer = ({fixed}) => {
 export default Footer
 
 Footer.propTypes = {
-  fixed: PropTypes.bool,
+  fixed: PropTypes.bool
 }

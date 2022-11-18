@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 import styles from './index.module.scss'
-import Icon from '../../components/Icon'
+import Icon from '../Icon'
 
-export default function NoData() {
+export default function NoData () {
   return (
     <div className={styles.NoDataWrap}>
       <Icon name="Slash" size={60} />

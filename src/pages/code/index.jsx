@@ -5,19 +5,19 @@ import ArticleList from '../../components/ArticleList'
 import { getList, getHitokoto } from '../../api'
 
 // This function gets called at build time
-export async function getStaticProps() {
+export async function getStaticProps () {
   const params = {
     pageSize: 10,
     pageNum: 1,
-    keyword: '', 
+    keyword: '',
     tabType: 5
   }
 
   const posts = await getList(params)
   const hitokoto = await getHitokoto()
-  return { 
+  return {
     props: { posts, hitokoto },
-    revalidate: 1, // 增量再生（更新生成的页面），从后台更新页面
+    revalidate: 1 // 增量再生（更新生成的页面），从后台更新页面
   }
 }
 
@@ -26,7 +26,7 @@ Code.propTypes = {
   hitokoto: PropTypes.object.isRequired
 }
 
-export default function Code({posts, hitokoto}) {
+export default function Code ({ posts, hitokoto }) {
   return (
     <Layout hitokoto={hitokoto}>
       <ArticleList posts={posts}/>

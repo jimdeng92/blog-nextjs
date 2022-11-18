@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Layout from '../../components/Layout'
-import {getList, getHitokoto} from '../../api'
+import { getList, getHitokoto } from '../../api'
 import ArticleList from '../../components/ArticleList'
 
-export default function Essay({posts, hitokoto}) {
+export default function Essay ({ posts, hitokoto }) {
   return (
     <Layout hitokoto={hitokoto}>
       <ArticleList posts={posts}/>
@@ -17,7 +17,7 @@ Essay.propTypes = {
   hitokoto: PropTypes.object.isRequired
 }
 
-export async function getStaticProps() {
+export async function getStaticProps () {
   const params = {
     pageSize: 10,
     pageNum: 1,
@@ -27,8 +27,8 @@ export async function getStaticProps() {
 
   const posts = await getList(params)
   const hitokoto = await getHitokoto()
-  return { 
+  return {
     props: { posts, hitokoto },
-    revalidate: 1, // 增量再生（更新生成的页面），从后台更新页面
+    revalidate: 1 // 增量再生（更新生成的页面），从后台更新页面
   }
 }

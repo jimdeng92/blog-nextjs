@@ -1,7 +1,7 @@
 /**
  * 获取指定范围的随机数
- * @param {number} minNum 
- * @param {number} maxNum 
+ * @param {number} minNum
+ * @param {number} maxNum
  */
 export const getRandomNum = (minNum, maxNum) => {
   if (typeof minNum !== 'number' || typeof maxNum !== 'number') {
@@ -13,15 +13,15 @@ export const getRandomNum = (minNum, maxNum) => {
 /**
  * 获取 url 中 search 键的值
  */
-export function getQueryString(key) {
+export function getQueryString (key) {
   return (
     decodeURIComponent(
-      (new RegExp("[?|&]" + key + "=([^&;]+?)(&|#|;|$)").exec(
+      (new RegExp('[?|&]' + key + '=([^&;]+?)(&|#|;|$)').exec(
         window.location.href
       // eslint-disable-next-line no-sparse-arrays
-      ) || [, ""])[1].replace(/\+/g, "%20")
-    ) || ""
-  );
+      ) || [, ''])[1].replace(/\+/g, '%20')
+    ) || ''
+  )
 }
 
 /**

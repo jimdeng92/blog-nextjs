@@ -1,14 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
 import styles from './index.module.css'
 import Nav from '../Nav'
 import Wrapper from '../Wrapper'
-import {useRouter} from 'next/router'
-import Link from 'next/link'
 import Icon from '../Icon'
 import NavBar from '../NavBar'
 
-const Header = (props) => {
+function Header (props) {
   const router = useRouter()
   // const [wechatVisible, setWechatVisible] = React.useState(false)
   const [statementDom, setStatementDom] = React.useState(null)
@@ -18,8 +18,8 @@ const Header = (props) => {
   // 监听滚动
   React.useEffect(() => {
     const fn = () => {
-      const offsetTop = statementDom.offsetTop
-      const scrollTop = document.documentElement.scrollTop
+      const { offsetTop } = statementDom
+      const { scrollTop } = document.documentElement
       setNavBarVisible(offsetTop < scrollTop)
     }
     window.addEventListener('scroll', fn)
@@ -30,7 +30,7 @@ const Header = (props) => {
     return () => {
       window.removeEventListener('scroll', fn)
     }
-  })
+  }, [router.pathname, props.title, statementDom])
 
   return (
     <div className={styles.Header}>
@@ -50,7 +50,7 @@ const Header = (props) => {
               target="_blank"
               title="mailto: jimdeng92@gmail.com"
             >
-              <Icon name='Mail' />
+              <Icon name="Mail" />
             </a>
             {/* github */}
             <a
@@ -60,11 +60,11 @@ const Header = (props) => {
               target="_blank"
               title="GitHub"
             >
-              <Icon name='Github' />
+              <Icon name="Github" />
             </a>
             {/* login */}
             <Link href="/log-in" title="登录" className={styles.iconsContainer}>
-              <Icon name='LogIn' />
+              <Icon name="LogIn" />
             </Link>
           </div>
         </div>

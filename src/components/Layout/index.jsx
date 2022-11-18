@@ -7,7 +7,6 @@ import Tool from '../Tool'
 import IndexPage from '../IndexPage'
 
 const Layout = (props) => {
-
   return (
     <>
       <IndexPage title={props.title} digest={props.digest}/>

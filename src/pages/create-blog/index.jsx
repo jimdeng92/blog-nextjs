@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react'
 import styles from './index.module.scss'
 import { createBlog } from '../../api/posts'
 import { useRouter } from 'next/router'
-import { ToastContainer, toast, Flip } from 'react-toastify';
-import Wrapper from '../../components/Wrapper';
-import Footer from '../../components/Footer';
+import { ToastContainer, toast, Flip } from 'react-toastify'
+import Wrapper from '../../components/Wrapper'
+import Footer from '../../components/Footer'
 
 const CreateBlog = () => {
   const router = useRouter()
@@ -40,12 +40,12 @@ const CreateBlog = () => {
     }
 
     try {
-      let resData = await createBlog({title, content, tabType: articleType})
+      const resData = await createBlog({ title, content, tabType: articleType })
       if (resData.code !== 200) throw resData
 
       toast.success('提交成功！')
       router.replace('/home')
-    } catch(e) {
+    } catch (e) {
       toast.error(e.message)
     }
   }
@@ -53,7 +53,6 @@ const CreateBlog = () => {
   const handleCancel = () => {
     router.back()
   }
-
 
   return (
     <>
@@ -80,4 +79,4 @@ const CreateBlog = () => {
   )
 }
 
-export default CreateBlog;
+export default CreateBlog

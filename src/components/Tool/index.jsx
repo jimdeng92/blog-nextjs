@@ -24,7 +24,7 @@ const Tool = (props) => {
   })
 
   // 返回顶部
-  function handleBackToTop() {
+  function handleBackToTop () {
     // window.scrollTo({
     //   top: 0,
     //   left: 0,
@@ -37,14 +37,14 @@ const Tool = (props) => {
   }
 
   // 返回首页
-  function handleBackToHome() {
+  function handleBackToHome () {
     router.push('/home')
   }
 
   // 主题切换
-  function handleTheme() {
+  function handleTheme () {
     const docEle = document.documentElement
-    if( docEle.hasAttribute('theme') ){
+    if (docEle.hasAttribute('theme')) {
       docEle.removeAttribute('theme')
       setHasTheme(false)
     } else {

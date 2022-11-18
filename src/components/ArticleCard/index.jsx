@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
 import styles from './index.module.scss'
-// import {splitStr} from '../../utils/common'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import 'dayjs/locale/zh-cn'
@@ -11,11 +10,10 @@ dayjs.locale('zh-cn')
 dayjs.extend(relativeTime)
 
 const ArticleCard = (props) => {
-
   return (
     <div className={styles.Article}>
       <header>
-        <Link href={`/posts/[pid]`} as={`/posts/${props.article.id}`}>
+        <Link href={'/posts/[pid]'} as={`/posts/${props.article.id}`}>
           <h2>{props.article.title}</h2>
         </Link>
       </header>

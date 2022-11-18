@@ -1,7 +1,7 @@
 import request from '../utils/fetch'
 
 export const getList = async (params) => {
-  const {data} = await request('/api/blog/list', {
+  const { data } = await request('/api/blog/list', {
     method: 'POST',
     body: params
   })
@@ -9,7 +9,7 @@ export const getList = async (params) => {
 }
 
 export const getDetailById = async (id) => {
-  const {data} = await request(`/api/blog/detail?id=${id}`)
+  const { data } = await request(`/api/blog/detail?id=${id}`)
   return data
 }
 

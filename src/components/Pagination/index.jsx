@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styles from './index.module.scss'
 
@@ -33,13 +33,13 @@ const RightEllipsis = (props) => {
  * @param {function} onChange 非必须，页码改变的回调，参数是当前页码
  */
 const Pagination = ({
-  total, 
-  onChange, 
-  current = 1, 
-  pageSize = 10, 
-  hideOnSinglePage = false 
+  total,
+  onChange,
+  current = 1,
+  pageSize = 10,
+  hideOnSinglePage = false
 }) => {
-  const [totalPage] = useState(Math.ceil(total/pageSize))
+  const [totalPage] = useState(Math.ceil(total / pageSize))
   const [activeIndex, setActiveIndex] = useState(0)
 
   useEffect(() => {
@@ -47,7 +47,7 @@ const Pagination = ({
   }, [current])
 
   // 点击 item
-  function handleItemClick(index) {
+  function handleItemClick (index) {
     if (index === activeIndex) return
     // setActiveIndex(index) // 切换路由前不改变组件状态
     onChange && onChange(index + 1)
@@ -59,11 +59,11 @@ const Pagination = ({
   return (
     <div className={styles.Pagination}>
       {/* 上一页 */}
-      <div 
+      <div
         className={[
             `${styles.PaginationItem}`,
             `${activeIndex === 0 ? styles.hidden : ''}`
-          ].join(' ')
+        ].join(' ')
         }
         onClick={() => { handleItemClick(activeIndex - 1) }}
       > « </div>
@@ -71,11 +71,11 @@ const Pagination = ({
       {
         totalPage <= 5 && [...Array(totalPage).keys()].map((item, index) => {
           return (
-            <div 
+            <div
               className={[
                   `${styles.PaginationItem}`,
                   `${activeIndex === index ? styles.active : ''}`
-                ].join(' ')
+              ].join(' ')
               }
               key={index}
               onClick={() => { handleItemClick(index) }}
@@ -92,11 +92,11 @@ const Pagination = ({
             {
               [...Array(activeIndex + 2).keys()].map((item, index) => {
                 return (
-                  <div 
+                  <div
                     className={[
                         `${styles.PaginationItem}`,
                         `${activeIndex === index ? styles.active : ''}`
-                      ].join(' ')
+                    ].join(' ')
                     }
                     key={index}
                     onClick={() => { handleItemClick(index) }}
@@ -120,11 +120,11 @@ const Pagination = ({
               // 在中间数组长度取 3
               [...Array(totalPage - activeIndex <= 3 ? (totalPage - activeIndex + 1) : 3).keys()].map((item, index) => {
                 return (
-                  <div 
+                  <div
                     className={[
                         `${styles.PaginationItem}`,
                         `${index === 1 ? styles.active : ''}`
-                      ].join(' ')
+                    ].join(' ')
                     }
                     key={activeIndex + index - 1}
                     onClick={() => { handleItemClick(activeIndex + index - 1) }}
@@ -142,11 +142,11 @@ const Pagination = ({
         )
       }
       {/* 下一页 */}
-      <div 
+      <div
         className={[
             `${styles.PaginationItem}`,
             `${activeIndex === totalPage - 1 ? styles.hidden : ''}`
-          ].join(' ')
+        ].join(' ')
         }
         onClick={() => { handleItemClick(activeIndex + 1) }}
       > » </div>

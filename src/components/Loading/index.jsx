@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 import styles from './index.module.scss'
 
-export default function Loading() {
+export default function Loading () {
   return (
     <div className={styles.LoadingWrap}>
       <svg className="icon" aria-hidden="true">
