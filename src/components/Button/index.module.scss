@@ -1,0 +1,30 @@
+.Button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 6px 9px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  line-height: 1;
+  transition: all .5s;
+  &:hover {
+    background-color: var(--border-color);
+    transition: all .5s;
+  }
+  &+.Button {
+    margin-left: 10px;
+  }
+  &.ButtonPrimary {
+    color: var(--link-color);
+  }
+  &.ButtonDanger {
+    color: var(--error-color);
+  }
+  &.ButtonWarning {
+    color: var(--warning-color);
+  }
+  &.ButtonSuccess {
+    color: var(--success-color);
+  }
+}

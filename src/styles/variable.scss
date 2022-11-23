@@ -1,15 +1,11 @@
  /* 类似于 html 选择器，但具有更高的优先级 */
 :root {
-  --bg-color: #f5f7f9;
-  --color-text-0: #111;
-  --primary-color: #383e46;
-  --second-color: #777e87;
-  --link-color: #0070f3;
-  --border-color: #E6E9ED;
-  --code-color: #333;
-  --code-bg-color: #f6f6f6;
-  --shadow-color: #EAEAEA;
-
+  --bg-color: #fff; // 背景色
+  --color-text-0: #222831; // 标题色
+  --primary-color: #393E46; // 文本色
+  --second-color: #777e87; // 次级文本色
+  --link-color: #0070F3; // 链接色
+  --border-color: #E6E9ED; // 边框色
   --success-color: #52c41a;
   --warning-color: #faad14;
   --error-color: #E97777;
@@ -22,11 +18,4 @@
   --second-color: #666e8e;
   --link-color: #0070f3;
   --border-color: #393f56;
-  --code-color: #333;
-  --code-bg-color: #a98c51;
-  --shadow-color: #EAEAEA;
-
-  --success-color: #52c41a;
-  --warning-color: #faad14;
-  --error-color: #E97777;
 }

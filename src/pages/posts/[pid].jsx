@@ -12,8 +12,7 @@ import ErrorBoundary from '../../components/ErrorBoundary' // 错误边界
 import Layout from '../../components/Layout'
 import Loading from '../../components/Loading'
 import 'highlight.js/styles/atom-one-dark.css'
-import Icon from '../../components/Icon'
-// import Popover from '../../components/Popover'
+import Button from '../../components/Button'
 
 function Posts ({ posts, hitokoto }) {
   const router = useRouter()
@@ -61,25 +60,10 @@ function Posts ({ posts, hitokoto }) {
                     <div className={styles.titleWrapper}>
                       <h1 className={['post-title', 'post-header', styles.title].join(' ')}>{posts.title}</h1>
                       <div className={styles.actionBlock}>
-                        <Link href="/modify-blog/[pid]" as={`/modify-blog/${posts.id}`} className={styles.modifyButton}>
-                          <Icon name="Edit" />
+                        <Link href="/modify-blog/[pid]" as={`/modify-blog/${posts.id}`} style={{ marginRight: '10px' }}>
+                          <Button iconName="Edit"/>
                         </Link>
-                        <div className={styles.deleteButton} onClick={handleDelete}>
-                          <Icon name="Trash2" />
-                          {/* <Popover tooltip={
-                        <>
-                          <p>确认删除吗?</p>
-                          <div>
-                            <Icon name="Check" />
-                          </div>
-                          <div>
-                            <Icon name="X" />
-                          </div>
-                        </>
-                      }>
-                        <Icon name="Trash2" />
-                      </Popover> */}
-                        </div>
+                        <Button onClick={handleDelete} iconName="Trash2" type="danger" />
                       </div>
                     </div>
                     <div className="post-body" dangerouslySetInnerHTML={createMarkup()} />

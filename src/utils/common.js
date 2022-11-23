@@ -34,3 +34,10 @@ export const splitStr = function (str, len) {
   if (str.length <= len) return str + '...'
   return str.slice(0, len) + '...'
 }
+
+/**
+ * 首字母大写
+ */
+export const capitalized = (word) => {
+  return word.charAt(0).toUpperCase() + word.slice(1)
+}

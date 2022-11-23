@@ -8,6 +8,7 @@ import ErrorBoundary from '../../components/ErrorBoundary' // 错误边界
 import Layout from '../../components/Layout'
 import Loading from '../../components/Loading'
 import { updateBlog, getBlogDetailById } from '../../api/posts'
+import Button from '../../components/Button'
 
 function Modify ({ posts, hitokoto }) {
   const router = useRouter()
@@ -109,8 +110,8 @@ function Modify ({ posts, hitokoto }) {
                 <ErrorBoundary>
                   <textarea className={styles.textarea} value={content} rows={36} onChange={handleContentChange} />
                   <div className={styles.actionBlock}>
-                    <a className={styles.confirmButton} onClick={handleConfirm}>确认修改</a>
-                    <a className={styles.cancelButton} onClick={handleCancel}>取消</a>
+                    <Button onClick={handleConfirm} iconName="Check" />
+                    <Button onClick={handleCancel} iconName="X" type="danger" />
                   </div>
                 </ErrorBoundary>
           }

@@ -68,12 +68,5 @@
     padding: 10px 0;
     display: flex;
     justify-content: flex-end;
-    .confirmButton, .cancelButton {
-      font-size: 14px;
-      margin-left: 10px;
-      cursor: pointer;
-      color: var(--link-color);
-    }
-
   }
 }

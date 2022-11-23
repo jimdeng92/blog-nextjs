@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import { ToastContainer, toast, Flip } from 'react-toastify'
 import Wrapper from '../../components/Wrapper'
 import Footer from '../../components/Footer'
+import Button from '../../components/Button'
 
 const CreateBlog = () => {
   const router = useRouter()
@@ -58,7 +59,7 @@ const CreateBlog = () => {
     <>
       <Wrapper>
         <div className={styles.Create}>
-          <p className={styles.createTitle}>{'Jim\'s Space 新建文章'}</p>
+          <p className={styles.createTitle}>{'Jim\'s Space Create'}</p>
           <div className={styles.selection}>
             <input type="text" value={title} className={styles.title} onChange={handleSetTitle} placeholder="请输入标题" />
             <select placeholder="请选择文章类型" value={articleType} onChange={handleSelectChange} className={styles.articleType}>
@@ -68,8 +69,8 @@ const CreateBlog = () => {
           </div>
           <textarea className={styles.textarea} value={content} onChange={handleContentChange} placeholder="请输入内容..." />
           <div className={styles.actionBlock}>
-            <a className={styles.confirmButton} onClick={handleConfirm}>确认提交</a>
-            <a className={styles.cancelButton} onClick={handleCancel}>取消</a>
+            <Button onClick={handleConfirm} iconName="Check" />
+            <Button onClick={handleCancel} iconName="X" type="danger" />
           </div>
           <ToastContainer transition={Flip} />
         </div>
