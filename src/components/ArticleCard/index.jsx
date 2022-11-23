@@ -19,6 +19,9 @@ const ArticleCard = (props) => {
       </header>
       <main className={styles.textCut}>{props.article.digest}...</main>
       <footer>
+        {
+          (props.article.createdAt !== props.article.updatedAt) && <span>{dayjs().from(props.article.updatedAt, true)}前更新</span>
+        }
         <span>{dayjs().from(props.article.createdAt, true)}前发布</span>
         {/* <span>248 条评论</span>
         <span>186 人喜欢</span> */}

@@ -36,6 +36,7 @@ const ArticleList = ({ posts }) => {
         posts.count > 0
           ? <Pagination
             total={posts.count}
+            pageSize={posts.pageSize}
             current={parseInt(router.query.num) || 1}
             onChange={(pageNum) => handlePageChange(pageNum)}
           />

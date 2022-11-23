@@ -19,7 +19,7 @@ Essay.propTypes = {
 
 export async function getStaticProps () {
   const params = {
-    pageSize: 10,
+    pageSize: 20,
     pageNum: 1,
     keyword: '',
     tabType: 10

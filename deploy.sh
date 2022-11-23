@@ -1,6 +1,6 @@
 #! /bin/bash
 # 使脚本具有执行权限
-# chmod u+x ./deploy.sh
+# chmod +x ./deploy.sh
 
 echo "Start to publish..."
 

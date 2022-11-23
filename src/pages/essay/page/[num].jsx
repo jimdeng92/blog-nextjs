@@ -20,7 +20,7 @@ export default function Page ({ posts, hitokoto }) {
 export async function getStaticProps (context) {
   const { num } = context.params
   const params = {
-    pageSize: 10,
+    pageSize: 20,
     pageNum: num,
     keyword: '',
     tabType: 10
@@ -36,14 +36,14 @@ export async function getStaticProps (context) {
 
 export async function getStaticPaths () {
   const { count } = await getList({
-    pageSize: 10,
+    pageSize: 20,
     pageNum: 1,
     keyword: '',
     tabType: 10
   })
 
   // 总页数
-  const totalPage = count ? Math.ceil(count / 10) : 0
+  const totalPage = count ? Math.ceil(count / 20) : 0
 
   const pages = [...Array(totalPage).keys()].map(item => ({
     params: { num: (item + 1).toString() } // 参数 value 必须是字符串
