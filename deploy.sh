@@ -1,6 +1,7 @@
 #! /bin/bash
 # 使脚本具有执行权限
 # chmod +x ./deploy.sh
+# git config core.filemode false
 
 echo "Start to publish..."
 
