@@ -8,32 +8,6 @@ const Popover = (props) => {
   const referenceElement = useRef(null)
   const popperElement = useRef(null)
 
-  function show () {
-    popperElement.current.setAttribute('data-show', '')
-
-    popperInstance.setOptions((options) => ({
-      ...options,
-      modifiers: [
-        ...options.modifiers,
-        { name: 'eventListeners', enabled: true }
-      ]
-    }))
-
-    popperInstance.update()
-  }
-
-  function hide () {
-    popperElement.current.removeAttribute('data-show')
-
-    popperInstance.setOptions((options) => ({
-      ...options,
-      modifiers: [
-        ...options.modifiers,
-        { name: 'eventListeners', enabled: false }
-      ]
-    }))
-  }
-
   useEffect(() => {
     console.log('useEffect1')
     const instance = createPopper(referenceElement.current, popperElement.current, {
@@ -52,6 +26,32 @@ const Popover = (props) => {
 
   useEffect(() => {
     console.log('useEffect2')
+
+    function show () {
+      popperElement.current.setAttribute('data-show', '')
+
+      popperInstance.setOptions((options) => ({
+        ...options,
+        modifiers: [
+          ...options.modifiers,
+          { name: 'eventListeners', enabled: true }
+        ]
+      }))
+
+      popperInstance.update()
+    }
+
+    function hide () {
+      popperElement.current.removeAttribute('data-show')
+
+      popperInstance.setOptions((options) => ({
+        ...options,
+        modifiers: [
+          ...options.modifiers,
+          { name: 'eventListeners', enabled: false }
+        ]
+      }))
+    }
     const showEvents = ['mouseenter', 'focus']
     const hideEvents = ['mouseleave', 'blur']
 

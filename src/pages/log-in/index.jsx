@@ -9,6 +9,7 @@ import Footer from '../../components/Footer'
 import { aesEncrypt } from '../../utils/crypto'
 import NavBar from '../../components/NavBar'
 import IndexPage from '../../components/IndexPage'
+import Image from 'next/image'
 
 export default function LogIn () {
   const router = useRouter()
@@ -59,7 +60,7 @@ export default function LogIn () {
         <div className={styles.LogInWrapper}>
 
           <div className={styles.LogInTitle}>
-            <img src="/j_logo.png" />
+            <Image src="/j_logo.png" alt="jim_logo" />
             <p>{'Jim\'s Space Login'}</p>
           </div>
           <div className={styles.AccountInput}>

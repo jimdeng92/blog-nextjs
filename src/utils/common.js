@@ -1,3 +1,6 @@
+
+import { marked } from 'marked'
+
 /**
  * 获取指定范围的随机数
  * @param {number} minNum
@@ -40,4 +43,13 @@ export const splitStr = function (str, len) {
  */
 export const capitalized = (word) => {
   return word.charAt(0).toUpperCase() + word.slice(1)
+}
+
+/**
+ * 解析markdown
+ */
+export const markdown2Html = (markdown) => {
+  return {
+    __html: marked.parse(markdown)
+  }
 }

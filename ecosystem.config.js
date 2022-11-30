@@ -29,7 +29,7 @@ module.exports = {
       //   NODE_ENV: 'production',
       //   PORT: 10001
       // },
-      merge_logs: true, // 集群情况下，可以合并日志
-    },
-  ],
-};
+      merge_logs: true // 集群情况下，可以合并日志
+    }
+  ]
+}

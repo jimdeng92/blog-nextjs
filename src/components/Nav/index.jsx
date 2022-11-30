@@ -13,6 +13,9 @@ const navList = [
   },
   {
     id: 3, iconName: 'Coffee', desc: '生活', to: '/essay'
+  },
+  {
+    id: 4, iconName: 'Bookmark', desc: '收藏', to: '/bookmark'
   }
 ]
 

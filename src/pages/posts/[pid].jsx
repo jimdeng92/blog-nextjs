@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import hljs from 'highlight.js'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { marked } from 'marked'
+import { markdown2Html } from '../../utils/common'
 import { ToastContainer, toast, Flip } from 'react-toastify'
 import { getList, getDetailById, getHitokoto } from '../../api'
 import { deleteBlog } from '../../api/posts'
@@ -27,12 +27,6 @@ function Posts ({ posts, hitokoto }) {
   // TODO Layout 传参优化
   if (router.isFallback) {
     return <Loading />
-  }
-
-  function createMarkup () {
-    return {
-      __html: marked.parse(posts.content)
-    }
   }
 
   const handleDelete = async () => {
@@ -66,7 +60,7 @@ function Posts ({ posts, hitokoto }) {
                         <Button onClick={handleDelete} iconName="Trash2" type="danger" />
                       </div>
                     </div>
-                    <div className="post-body" dangerouslySetInnerHTML={createMarkup()} />
+                    <div className="post-body" dangerouslySetInnerHTML={markdown2Html(posts.content)} />
 
                     <ToastContainer transition={Flip} />
                   </article>

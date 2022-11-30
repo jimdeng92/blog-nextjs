@@ -10,11 +10,7 @@ const Footer = ({ fixed }) => {
         <Wrapper>
           <div className={styles.FooterWrapper}>
             © 2022 JimDeng .
-            <a className={styles.reference} href="http://www.miit.gov.cn/" target="_blank" rel="noopener noreferrer">粤ICP备2021011703号-1</a>
-            {/* <div className={styles.FooterItem}>
-              Theme by
-              <a className={styles.adams} href="https://biji.io" target="_blank" rel="noopener noreferrer"> Adams </a>
-            </div> */}
+            <a className={styles.reference} href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer">湘ICP备2022024308号</a>
           </div>
         </Wrapper>
       </div>
