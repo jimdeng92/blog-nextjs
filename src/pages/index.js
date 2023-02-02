@@ -1,4 +1,4 @@
-// 根目录
+// 根目录<入口文件>
 import React, { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Layout from '../components/Layout'

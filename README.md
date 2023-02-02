@@ -188,7 +188,7 @@ export default function Index() {
 
 5. 全局文件引入 `src/pages/_app.js`，其中含插件、全局样式和全局进度条等。
 
-```
+``` jsx
 import React, {useEffect} from 'react'
 import PropTypes from 'prop-types'
 import 'dayjs/locale/zh-cn'
