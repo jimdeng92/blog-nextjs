@@ -62,9 +62,9 @@ function Header (props) {
               <Icon name="Github" />
             </a>
             {/* login */}
-            <Link href="/log-in" title="登录" className={styles.iconsContainer}>
+            {/* <Link href="/log-in" title="登录" className={styles.iconsContainer}>
               <Icon name="LogIn" />
-            </Link>
+            </Link> */}
           </div>
         </div>
         <div className={styles.HeaderNavbar}>

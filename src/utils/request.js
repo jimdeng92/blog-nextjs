@@ -34,7 +34,7 @@ const baseURL = process.env.NEXT_PUBLIC_HOST
 const service = axios.create({
   baseURL,
   withCredentials: true,
-  timeout: 15 * 1000
+  timeout: 30 * 1000
 })
 
 // request 拦截器

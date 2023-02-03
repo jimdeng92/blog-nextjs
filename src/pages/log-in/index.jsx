@@ -60,7 +60,7 @@ export default function LogIn () {
         <div className={styles.LogInWrapper}>
 
           <div className={styles.LogInTitle}>
-            <Image src="/j_logo.png" alt="jim_logo" />
+            <Image src="/j_logo.png" alt="jim_logo" width={150} height={150} />
             <p>{'Jim\'s Space Login'}</p>
           </div>
           <div className={styles.AccountInput}>

@@ -75,9 +75,9 @@ const Tool = (props) => {
             <Icon name="Home" />
           </div>
       }
-      <div title="新建" className={styles.iconsContainer}>
+      <div title="写文章" className={styles.iconsContainer}>
         <Link href="/create-blog">
-          <Icon name="ListPlus" />
+          <Icon name="PenTool" />
         </Link>
       </div>
       <div

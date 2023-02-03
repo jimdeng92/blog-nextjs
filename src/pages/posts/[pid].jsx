@@ -13,9 +13,11 @@ import Layout from '../../components/Layout'
 import Loading from '../../components/Loading'
 import 'highlight.js/styles/atom-one-dark.css'
 import Button from '../../components/Button'
+import useLoginModal from '../../components/LoginModal'
 
 function Posts ({ posts, hitokoto }) {
   const router = useRouter()
+  const { open, LoginModal } = useLoginModal()
 
   useEffect(() => {
     document.querySelectorAll('pre code').forEach((el) => {
@@ -32,6 +34,10 @@ function Posts ({ posts, hitokoto }) {
   const handleDelete = async () => {
     try {
       const resData = await deleteBlog({ id: posts.id })
+      if (resData.code === 401) {
+        open()
+        return
+      }
       if (resData.code !== 200) throw resData
 
       toast.success('删除成功！')
@@ -69,6 +75,7 @@ function Posts ({ posts, hitokoto }) {
             </div>
             )
       }
+      <LoginModal />
     </Layout>
   )
 }

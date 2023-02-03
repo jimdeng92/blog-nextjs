@@ -9,6 +9,7 @@ import Layout from '../../components/Layout'
 import Loading from '../../components/Loading'
 import { updateBlog, getBlogDetailById } from '../../api/posts'
 import Button from '../../components/Button'
+import useLoginModal from '../../components/LoginModal'
 
 function Modify ({ posts, hitokoto }) {
   const router = useRouter()
@@ -17,6 +18,8 @@ function Modify ({ posts, hitokoto }) {
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
   const [articleType, setArticleType] = useState(5)
+
+  const { open, LoginModal } = useLoginModal()
 
   // 如果路由中有id 就获取初始数据（编辑）
   useEffect(() => {
@@ -77,6 +80,12 @@ function Modify ({ posts, hitokoto }) {
       const resData = await updateBlog({
         id: pid, title, content, tabType: articleType
       })
+
+      if (resData.code === 401) {
+        open()
+        return
+      }
+
       if (resData.code !== 200) throw resData
 
       toast.success('更新成功！')
@@ -110,8 +119,8 @@ function Modify ({ posts, hitokoto }) {
                 <ErrorBoundary>
                   <textarea className={styles.textarea} value={content} rows={36} onChange={handleContentChange} />
                   <div className={styles.actionBlock}>
+                    <Button onClick={handleCancel} iconName="Reply" type="danger" />
                     <Button onClick={handleConfirm} iconName="Check" />
-                    <Button onClick={handleCancel} iconName="X" type="danger" />
                   </div>
                 </ErrorBoundary>
           }
@@ -119,7 +128,7 @@ function Modify ({ posts, hitokoto }) {
             </div>
             )
       }
-
+      <LoginModal />
     </Layout>
   )
 }
